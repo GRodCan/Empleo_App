@@ -1,24 +1,24 @@
 const views ={
     home: (req, res) => {
-        res.send('Home')
+        res.status(200).render('home')
       },
     signup: (req, res) => {
-        res.send('SignUp')
+        res.status(200).render('signup')
       },
     login: (req, res) => {
-        res.send('login')
+        res.status(200).render('login')
       },
     favorites: (req, res) => {
-        res.send('favorites')
+        res.status(200).render('favorites')
       },
     profile: (req, res) => {
-        res.send('profile')
+        res.status(200).render('profile')
       },
     users: (req, res) => {
-        res.send('users')
+        res.status(200).render('users')
       },
     dashboard: (req, res) => {
-        res.send('dashboard')
+        res.status(200).render('dashboard')
       }
 };
 module.exports=views
