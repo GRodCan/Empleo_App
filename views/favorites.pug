@@ -2,11 +2,15 @@ doctype html
 html
     head
         title= "Favorites"
+        style 
+            include ../public/styles/hamburguesa.css
     body
+        include ./header.pug
         div 
             a(href="ofert.url")
                 div
-                    h3= "offertTitle"
-                    p= "offertSalary"
-                    p= "company"
+                    h3 "titulo" #{offertTitle}
+                    p "salario" #{offertSalary}
+                    p "empresa" #{company}
                         button(type="button" class="highlighted" onClick=quitarHighlight)="like"
+    include ./footer.pug
