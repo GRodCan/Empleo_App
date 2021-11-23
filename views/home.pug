@@ -2,7 +2,23 @@ doctype html
 html
     head
         title= "Home"
+        style 
+            include ../public/styles/hamburguesa.css
     body
+        header
+            nav 
+                input(
+                    type="checkbox"
+                    id="menu")
+                label(
+                    for="menu"
+                ) ☰
+                div(
+                    class="desplegable"
+                )  
+                    a(href="/") Inicio 
+                    a(href="/signup") Registrarse 
+                    a(href="/login") Ingresar 
         div
             h1= "Home FreeLance Search"
             p= "En desarrollo"
