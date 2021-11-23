@@ -7,7 +7,7 @@ html
         main
             div
                 h2= "Login" 
-                form(action="/api/login")
+                form(action="/api/login" method="POST")
                     input(type="email" placeholder="Email")
                     input(type="password" placeholder="Password")
                     input(type="submit")
