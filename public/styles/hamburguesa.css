@@ -2,11 +2,11 @@
     display: none;
 }
 
-input:checked  ~ div{
+#menu:checked  ~ div{
     display:block;
 }
 
-input {
+#menu {
     display:none;
 }
 

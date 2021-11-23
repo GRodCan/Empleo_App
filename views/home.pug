@@ -5,20 +5,23 @@ html
         style 
             include ../public/styles/hamburguesa.css
     body
-        header
-            nav 
-                input(
-                    type="checkbox"
-                    id="menu")
-                label(
-                    for="menu"
-                ) ☰
-                div(
-                    class="desplegable"
-                )  
-                    a(href="/") Inicio 
-                    a(href="/signup") Registrarse 
-                    a(href="/login") Ingresar 
+        include ./header.pug
         div
-            h1= "Home FreeLance Search"
-            p= "En desarrollo"
+            div 
+                input(
+                    type="text"
+                    id="buscar"
+                    placeholder="Oferta")
+            div    
+                input(
+                    type="submit"
+                    value="Buscar")
+
+            //- Home de admin
+            //- input(
+            //-     type="submit"
+            //-     value="Usuarios")
+
+            //- input(
+            //-     type="submit"
+            //-     value="Ofertas")
