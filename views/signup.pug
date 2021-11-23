@@ -2,7 +2,30 @@ doctype html
 html
     head
         title= "Sign Up"
+        style 
+            include ../public/styles/hamburguesa.css
     body
-        div
-            h1= "Sign Up FreeLance Search"
-            p= "En desarrollo"
+        include ./header.pug
+        input(
+            type="submit"
+            value="Continuar con Facebook"
+            id="facebook")
+        input(
+            type="submit"
+            value="Continuar con Google"
+            id="google")
+        form(
+            action="/api/user"
+            method="POST")
+            input(
+                type="text"
+                placeholder="Nombre de usuario")
+            input(
+                type="email"
+                placeholder="Email")
+            input(
+                type="password"
+                placeholder="contraseña")
+            input(
+                type="submit"
+                value="Registrar") 
