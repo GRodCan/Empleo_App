@@ -2,7 +2,27 @@ doctype html
 html
     head
         title= "Home"
+        style 
+            include ../public/styles/hamburguesa.css
     body
+        include ./header.pug
         div
-            h1= "Home FreeLance Search"
-            p= "En desarrollo"
+            form(
+                action="/api/search"
+                method="GET")  
+                input(
+                    type="text"
+                    id="buscar"
+                    placeholder="Oferta")
+                input(
+                    type="submit"
+                    value="Buscar")
+
+            //- Home de admin
+            //- input(
+            //-     type="submit"
+            //-     value="Usuarios")
+
+            //- input(
+            //-     type="submit"
+            //-     value="Ofertas")

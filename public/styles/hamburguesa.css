@@ -1,0 +1,58 @@
+.desplegable {
+    display: none;
+}
+
+#menu:checked  ~ ul{
+    display:block;
+}
+
+#menu {
+    display:none;
+}
+
+label {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 0.0625rem solid lightgray;
+    color: lightgray;
+    background-color: rgb(61, 206, 199);
+    border-radius: 5px;
+    width: 1.875rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+label:hover {
+    background-color: lightskyblue;
+}
+
+/* Estilo cuando está expandido */
+ul {
+    position: absolute;
+    margin-top:0;
+    padding: 0;
+    width: 12.5rem;
+    z-index: 1;
+}
+
+li {
+    display: block;
+    background-color: lightblue;
+    margin: 0;
+    padding: 0.625rem;
+    list-style: none;
+    border-bottom: 1px solid lightgray;
+}
+
+a {
+    text-decoration: none;
+}
+
+li:hover {
+    filter: brightness(110%);
+    cursor: pointer;
+}

@@ -2,7 +2,15 @@ doctype html
 html
     head
         title= "Login"
+        style 
+            include ../public/styles/hamburguesa.css
     body
-        div
-            h1= "Login FreeLance Search"
-            p= "En desarrollo"
+        include ./header.pug
+        main
+            div
+                h2= "Login" 
+                form(action="/api/login" method="POST")
+                    input(type="email" placeholder="Email")
+                    input(type="password" placeholder="Password")
+                    input(type="submit")
+        include ./footer.pug
