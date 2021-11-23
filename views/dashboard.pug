@@ -2,7 +2,14 @@ doctype html
 html
     head
         title= "DashBoard"
-    body
-        div 
-            h1= "DashBoard FreeLance Search"
-            p= "En desarrollo"
+    body   
+        div         
+            a(href="ofert.url")
+                div
+                h3= "offertTitle" 
+                p= "offertSalary"
+                p= "company"
+                button(type="button" class="edit" onClick=nombreDeLaFuncion)= "Editar"
+                button(type="button" class="delete" onClick=nombreDeLaFuncion)= "Borrar"   
+            div 
+                button="Crear nueva oferta"

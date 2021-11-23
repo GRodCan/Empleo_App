@@ -4,5 +4,9 @@ html
         title= "Favorites"
     body
         div 
-            h1= "Favoritos FreeLance Search"
-            p= "En desarrollo"
+            a(href="ofert.url")
+                div
+                    h3= "offertTitle"
+                    p= "offertSalary"
+                    p= "company"
+                        button(type="button" class="highlighted" onClick=quitarHighlight)="like"
