@@ -2,7 +2,7 @@
     display: none;
 }
 
-#menu:checked  ~ div{
+#menu:checked  ~ ul{
     display:block;
 }
 
@@ -31,7 +31,7 @@ label:hover {
 }
 
 /* Estilo cuando está expandido */
-.desplegable{
+ul {
     position: absolute;
     margin-top:0;
     padding: 0;
@@ -39,17 +39,20 @@ label:hover {
     z-index: 1;
 }
 
-a {
+li {
     display: block;
     background-color: lightblue;
     margin: 0;
     padding: 0.625rem;
     list-style: none;
     border-bottom: 1px solid lightgray;
+}
+
+a {
     text-decoration: none;
 }
 
-a:hover {
+li:hover {
     filter: brightness(110%);
     cursor: pointer;
 }
