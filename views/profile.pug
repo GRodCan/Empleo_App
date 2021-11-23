@@ -3,6 +3,29 @@ html
     head
         title= "Profile"
     body
-        div 
-            h1= "Profile FreeLance Search"
-            p= "En desarrollo"
+        include ./header.pug
+        main
+            div 
+                h2= "Your profile"
+                div 
+                    img(src="user.avatar" alt="user avatar")
+                    p Name: #{user.name}
+                    p Email: #{user.email}
+                    p Miembro desde #{user.dateUp}
+                button(onclick="")= "Editar"
+
+            //- div
+            //-     p= "Rellene los campos que quiera modificar:"
+            //-     form(action="/api/user")
+            //-         input(type="text" placeholder="New Avatar url")
+            //-         input(type="text" placeholder="New Name") 
+            //-         input(type="email" placeholder="New Email")
+            //-         input(type="password" placeholder="New Password")
+            //-         p="Introduzca su contraseña actual para verificar sus modificaciones"
+            //-         input(type="password" placeholder="Current Password")    
+            //-         input(type="submit")= "Confirmar"
+
+
+        include ./footer.pug
+
+
