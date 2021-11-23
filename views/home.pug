@@ -7,12 +7,13 @@ html
     body
         include ./header.pug
         div
-            div 
+            form(
+                action="/api/search"
+                method="GET")  
                 input(
                     type="text"
                     id="buscar"
                     placeholder="Oferta")
-            div    
                 input(
                     type="submit"
                     value="Buscar")
