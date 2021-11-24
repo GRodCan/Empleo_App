@@ -2,7 +2,19 @@ doctype html
 html
     head
         title= "DashBoard"
+        style 
+            include ../public/styles/hamburguesa.css
     body
+        include ./header.pug   
         div 
-            h1= "DashBoard FreeLance Search"
-            p= "En desarrollo"
+           each _offert in _offerts
+            a(href="#")
+                div
+                    h3 "titulo" #{_offert.title}
+                    p "salario" #{_offert.salary}
+                    p "empresa" #{_offert.company}
+                    button(type="button" class="edit" onClick=nombreDeLaFuncion)= "Editar"
+                    button(type="button" class="delete" onClick=nombreDeLaFuncion)= "Borrar"   
+                div 
+                button="Crear nueva oferta"
+    include ./footer.pug

@@ -1,3 +1,5 @@
+const falsoObjeto=require ("../models/falsoObjeto.js")
+
 const views ={
     home: (req, res) => {
         res.status(200).render('home')
@@ -9,7 +11,7 @@ const views ={
         res.status(200).render('login')
       },
     favorites: (req, res) => {
-        res.status(200).render('favorites')
+        res.status(200).render('favorites', {_offerts:falsoObjeto})
       },
     profile: (req, res) => {
         res.status(200).render('profile')
@@ -18,7 +20,7 @@ const views ={
         res.status(200).render('users')
       },
     dashboard: (req, res) => {
-        res.status(200).render('dashboard')
+        res.status(200).render('dashboard', {_offerts:falsoObjeto})
       }
 };
 module.exports=views
