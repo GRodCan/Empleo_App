@@ -13,8 +13,8 @@ html
                     h3 "titulo" #{_offert.title}
                     p "salario" #{_offert.salary}
                     p "empresa" #{_offert.company}
-                    button(type="button" class="edit" onClick=nombreDeLaFuncion)= "Editar"
-                    button(type="button" class="delete" onClick=nombreDeLaFuncion)= "Borrar"   
+                    button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
+                    button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
                 div 
-                button="Crear nueva oferta"
+        button Crear nueva oferta
     include ./footer.pug

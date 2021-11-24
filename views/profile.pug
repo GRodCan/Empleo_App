@@ -2,16 +2,18 @@ doctype html
 html
     head
         title= "Profile"
+        style 
+            include ../public/styles/hamburguesa.css
     body
         include ./header.pug
         main
             div 
                 h2= "Your profile"
-                div 
-                    img(src="user.avatar" alt="user avatar")
-                    p Name: #{user.name}
-                    p Email: #{user.email}
-                    p Miembro desde #{user.dateUp}
+                    div 
+                        img(src='#{users.avatar}' alt="user avatar")
+                        p Name: #{users.name}
+                        p Email: #{users.email}
+                        p Miembro desde #{users.dateUp}
                 button(onclick="")= "Editar"
 
             //- div
