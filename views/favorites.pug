@@ -6,11 +6,12 @@ html
             include ../public/styles/hamburguesa.css
     body
         include ./header.pug
-        div 
-            a(href="ofert.url")
-                div
-                    h3 "titulo" #{offertTitle}
-                    p "salario" #{offertSalary}
-                    p "empresa" #{company}
-                        button(type="button" class="highlighted" onClick=quitarHighlight)="like"
+        div
+            each _offert in _offerts
+                a(href="ofert.url")
+                    div
+                        h3 "titulo" #{_offert.title}
+                        p "salario" #{_offert.salary}
+                        p "empresa" #{_offert.company}
+                            button(type="button" class="highlighted" onClick=quitarHighlight)="like"
     include ./footer.pug

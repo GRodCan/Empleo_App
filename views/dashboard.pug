@@ -7,13 +7,14 @@ html
     body
         include ./header.pug   
         div 
-            a(href="ofert.url")
+           each _offert in _offerts
+            a(href="#")
                 div
-                h3 "titulo" #{offertTitle}
-                p "salario" #{offertSalary}
-                p "empresa" #{company}
-                button(type="button" class="edit" onClick=nombreDeLaFuncion)= "Editar"
-                button(type="button" class="delete" onClick=nombreDeLaFuncion)= "Borrar"   
-            div 
+                    h3 "titulo" #{_offert.title}
+                    p "salario" #{_offert.salary}
+                    p "empresa" #{_offert.company}
+                    button(type="button" class="edit" onClick=nombreDeLaFuncion)= "Editar"
+                    button(type="button" class="delete" onClick=nombreDeLaFuncion)= "Borrar"   
+                div 
                 button="Crear nueva oferta"
     include ./footer.pug
