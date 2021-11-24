@@ -1,7 +1,7 @@
 const express = require('express');
 // const { route } = require('./routes/');
 const viewsRouter=require('./routes/views')
-const apiSqlRouter=require('./routes/apiSql')
+const apiSqlRouter=require('./routes/api')
 
 const app = express()
 const port = 3000
