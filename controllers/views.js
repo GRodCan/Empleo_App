@@ -1,4 +1,5 @@
 const falsoObjeto=require ("../models/falsoObjeto.js")
+const falsoUsuario = require ('../models/falsoUsuario')
 
 const views ={
     home: (req, res) => {
@@ -14,10 +15,10 @@ const views ={
         res.status(200).render('favorites', {_offerts:falsoObjeto})
       },
     profile: (req, res) => {
-        res.status(200).render('profile')
+        res.status(200).render('profile', {users: falsoUsuario})
       },
     users: (req, res) => {
-        res.status(200).render('users')
+        res.status(200).render('users', {users: falsoUsuario})
       },
     dashboard: (req, res) => {
         res.status(200).render('dashboard', {_offerts:falsoObjeto})
