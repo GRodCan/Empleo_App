@@ -1,10 +1,12 @@
 const express = require('express');
-// const { route } = require('./routes/');
-const viewsRouter=require('./routes/views')
-const apiSqlRouter=require('./routes/api')
+const viewsRouter=require('./routes/views');
+const apiSqlRouter=require('./routes/api');
+
 
 const app = express()
 const port = 3000
+
+app.use(express.json())
 
 app.use("/", viewsRouter)
 app.use("/api",apiSqlRouter)

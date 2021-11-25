@@ -1,4 +1,4 @@
-// const views = require('../controllers/api'); CUANDO TENGAMOS CONTROLLER
+const api_Mongo = require('../controllers/api_mongo');
 const routes= require('express').Router();
 
 routes.post('/user', (req,res)=>res.send("Registrarse en la aplicación"));
@@ -13,7 +13,7 @@ routes.post('/logout', (req,res)=>res.send("Salir de la aplicación"));
 
 routes.get('/search', (req,res)=>res.send("Resultados busqueda"));
 
-routes.post('/ads', (req,res)=>res.send("Crear oferta (admin)"));
+routes.post('/ads', api_Mongo.createOffert);
 
 routes.put('/ads', (req,res)=>res.send("Editar oferta (admin)"));
 
