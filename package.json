@@ -20,7 +20,11 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^6.0.13",
+    "mongosh": "^1.1.4",
     "pug": "^3.0.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
 }
