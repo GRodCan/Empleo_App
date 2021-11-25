@@ -11,13 +11,13 @@ routes.post('/login', (req,res)=>res.send("Hacer login en la aplicación"));
 
 routes.post('/logout', (req,res)=>res.send("Salir de la aplicación"));
 
-routes.get('/search', (req,res)=>res.send("Resultados busqueda"));
+routes.get('/search', api_Mongo.getAllOfferts);
 
 routes.post('/ads', api_Mongo.createOffert);
 
-routes.put('/ads', (req,res)=>res.send("Editar oferta (admin)"));
+routes.put('/ads', api_Mongo.editOffert);
 
-routes.delete('/ads', (req,res)=>res.send("Borrar oferta (admin)"));
+routes.delete('/ads', api_Mongo.deleteOffert);
 
 routes.post('/favorites', (req,res)=>res.send("Guardar favorito"));
 

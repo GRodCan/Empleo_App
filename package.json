@@ -23,5 +23,8 @@
     "mongosh": "^1.1.4",
     "pug": "^3.0.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
 }
