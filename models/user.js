@@ -40,14 +40,28 @@ const getUserByEmail = async(email) => {
     return result
 }
 
-const editUserByEmail = async(email) => {
-    let cient;
-    
+const editUserByEmail = async(newPass, email, oldPass) => {
+    let client, result
+    try{
+        client = await pool.connect();
+        const data = await client.query(`UPDATE users
+                                        SET pass = $1
+                                        WHERE email = $2
+                                        AND pass = $3`, [newPass, email, oldPass])
+        result = data.rowCount
+    }catch{
+        console.log(err);
+        throw err;
+    }finally{
+        client.release()
+    }
+    return result
 }
 
 const users = {
     createUser,
-    getUserByEmail
+    getUserByEmail,
+    editUserByEmail
 }
 
 module.exports = users;
@@ -60,3 +74,6 @@ module.exports = users;
 
 // getUserByEmail("odioalositalianos@ciber.com")
 //     .then(data=>console.log(data))
+
+// editUserByEmail("gritos", "odioalositalianos@ciber.com", "vocerio")
+//     .then(data=>console.log(data));
