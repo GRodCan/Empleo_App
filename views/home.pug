@@ -4,20 +4,29 @@ html
         title= "Home"
         style 
             include ../public/styles/hamburguesa.css
+        
     body
         include ./header.pug
-        div
-            form(
-                action="/api/search"
-                method="GET")  
-                input(
-                    type="text"
-                    id="buscar"
-                    placeholder="Oferta")
-                input(
-                    type="submit"
-                    value="Buscar")
-
+        main
+            div(id =root)
+                form(
+                    action="/api/search"
+                    method="GET")  
+                    input(
+                        type="text"
+                        id="buscar"
+                        placeholder="Oferta")
+                    input(
+                        type="submit"
+                        value="Buscar")
+                each _offert in data
+                    a(href="ofert.url")
+                        div
+                            h3 "titulo" #{_offert.title}
+                            p "salario" #{_offert.salary}
+                            p "empresa" #{_offert.company}
+        include ./footer.pug
+        script(src="./scripts/home.js")
             //- Home de admin
             //- input(
             //-     type="submit"

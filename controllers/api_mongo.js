@@ -6,7 +6,10 @@ const offerts={
             const query={};
             const cursor = await collection.find(query);
             const data= await cursor.toArray();
-            res.status(200).json(data)
+            console.log("*******************************************************************************")
+            console.log(data)
+            console.log("*******************************************************************************")
+            res.status(200).render('home', {data:data})
             }catch(err){
                 res.status(400).json({"error":err})
         }
