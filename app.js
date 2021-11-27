@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 // const { route } = require('./routes/');
 const productRouter=require('./routes/views')
+const userApiRouter = require('./controllers/userApi');
 
 
 const app = express()
