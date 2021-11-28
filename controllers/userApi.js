@@ -14,7 +14,7 @@ const getUsers = async(req, res) => {
 const createUser = async(req, res) => {
     console.log(req.body);
     try{
-        const result = await User.createUser(req.body);
+        const result = await User.createUser(req.body.nombre, req.body.email, req.body.pass);
         console.log('Usuario creado')
         res.status(201).json({datos_guardados:result,status:"ÉXITO"});
     }catch(err){
