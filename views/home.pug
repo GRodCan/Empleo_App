@@ -4,6 +4,7 @@ html
         title= "Home"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/home.css
     body
         include ./header.pug
         div
@@ -16,8 +17,9 @@ html
                     placeholder="Oferta")
                 input(
                     type="submit"
-                    value="Buscar")
-
+                    value="buscar")
+                    
+    include ./footer.pug 
             //- Home de admin
             //- input(
             //-     type="submit"

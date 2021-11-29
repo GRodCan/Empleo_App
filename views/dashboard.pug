@@ -4,17 +4,18 @@ html
         title= "DashBoard"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/dashboard.css
     body
         include ./header.pug   
-        div 
+        div(class="containerdiv")
            each _offert in _offerts
             a(href="#")
-                div
+                div(class="eachOffer")
                     h3 "titulo" #{_offert.title}
                     p "salario" #{_offert.salary}
                     p "empresa" #{_offert.company}
                     button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
                     button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
                 div 
-        button Crear nueva oferta
+        button(class="crearoferta") Crear nueva oferta
     include ./footer.pug
