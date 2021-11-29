@@ -6,8 +6,8 @@ const pool = new Pool({
     password: "123456"
 });
 
-const createUser = async(user) => {
-    const {nombre, email, pass, administrador} = user;
+const createUser = async(nombre, email, pass, administrador=false) => {
+    console.log("Esto es lo que llega", nombre, email, pass);
     let client, result;
     try{
         client = await pool.connect();

@@ -15,8 +15,8 @@ const createUser = async(req, res) => {
     console.log(req.body);
     try{
         const result = await User.createUser(req.body.nombre, req.body.email, req.body.pass);
-        console.log('Usuario creado')
-        res.status(201).json({datos_guardados:result,status:"ÉXITO"});
+        console.log('Usuario creado');
+        res.redirect('http://localhost:3000/profile');
     }catch(err){
         res.status(400).json({"error":err});
     }
@@ -37,3 +37,5 @@ const users = {
     createUser,
     editUserByEmail
 }
+
+module.exports = users
