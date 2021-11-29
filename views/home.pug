@@ -20,11 +20,12 @@ html
                         type="submit"
                         value="Buscar")
                 each _offert in data
-                    a(href="ofert.url")
+                    a(href= _offert.url)
                         div
-                            h3 "titulo" #{_offert.title}
-                            p "salario" #{_offert.salary}
-                            p "empresa" #{_offert.company}
+                            h3 Titulo: #{_offert.title}
+                            p Salario: #{_offert.salary}
+                            p Empresa: #{_offert.company}
+                            p Descripción oferta: #{_offert.description}
         include ./footer.pug
         script(src="./scripts/home.js")
             //- Home de admin
