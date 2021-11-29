@@ -17,3 +17,6 @@ app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
   })
 
+/////////////////////////RUTAS PARA LA API////////////////////////////////////////////////
+// app.use('/api/user', userApiRouter)
+
