@@ -4,14 +4,15 @@ html
         title= "Favorites"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/favorites.css
     body
         include ./header.pug
         div
             each _offert in _offerts
                 a(href="ofert.url")
-                    div
-                        h3 "titulo" #{_offert.title}
-                        p "salario" #{_offert.salary}
-                        p "empresa" #{_offert.company}
-                            button(type="button" class="highlighted" onClick=quitarHighlight) like
+                div(class="eachOffer")
+                    h3 "titulo" #{_offert.title}
+                    p "salario" #{_offert.salary}
+                    p "empresa" #{_offert.company}
+                        button(type="button" class="highlighted" onClick=quitarHighlight) like
     include ./footer.pug

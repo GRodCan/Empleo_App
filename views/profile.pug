@@ -4,18 +4,19 @@ html
         title= "Profile"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/profile.css
         script( src="/scripts/profile.js")
     body
         include ./header.pug
         main
-            div(id="root") 
+            div(id="root" class="containerdiv") 
                 h2= "Your profile"
                     div 
                         img(src='#{users.avatar}' alt="user avatar")
                         p Name: #{users.name}
                         p Email: #{users.email}
-                        p Miembro desde #{users.dateUp}
-                button(onclick="editMode()")= "Editar"
+                        p Miembro desde: #{users.dateUp}
+                button(class="send" onclick="editMode()")= "Editar"
 
 
 
