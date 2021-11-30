@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
 
     await page.setViewport({width:1440, height:614});
 
-    await page.type('#KeywordSearch', 'freelance web developer')
+    await page.type('#KeywordSearch', 'freelance full stack')
 
     await page.click('#HeroSearchButton');
     await page.waitForSelector('.react-job-listing');
