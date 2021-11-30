@@ -1,10 +1,14 @@
 const Offert= require("../models/offert")
 const mongoDB= require("../utils/mongoDB")
+const scrapingDomestika= require("../utils/domestika_scrap");
+const scrap_Domestika = require("../utils/domestika_scrap");
 const offerts={
     getAllOfferts: async (req,res)=>{
             try{            
-            const data= await mongoDB.getAllOfferts()
-            console.log("api_mongo controller", data);
+            const data_mongo= await mongoDB.getAllOfferts();
+            const scrap= await scrap_Domestika(req.query.search)
+            const data= await scrap.concat(data_mongo)
+            console.log(req.query.search)
             if(req.params.from){
             res.status(200).render(req.params.from, {data:data})
             }else{

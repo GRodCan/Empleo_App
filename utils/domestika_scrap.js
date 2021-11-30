@@ -1,6 +1,10 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
+const scrap_Domestika=async (query) => {
+    if(!query){
+        query= "full-stack"
+    }
+    console.log(query);
     const browser = await puppeteer.launch({headless: true});
 
     const page = await browser.newPage();
@@ -9,7 +13,7 @@ const puppeteer = require('puppeteer');
 
     await page.setViewport({width:1440, height:614});
 
-    await page.type('#query', 'full stack')
+    await page.type('#query', query)
 
     await page.click('.ais-SearchBox-submit');
     await page.waitForSelector('.job-item');
@@ -40,6 +44,8 @@ const puppeteer = require('puppeteer');
         });
         ofertas.push(oferta);
     }
-    console.log(ofertas)
     await browser.close();
-})();
+    return ofertas
+};
+
+module.exports=scrap_Domestika
