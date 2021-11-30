@@ -4,28 +4,20 @@ html
         title= "Profile"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/profile.css
+        script( src="/scripts/profile.js")
     body
         include ./header.pug
         main
-            div 
+            div(id="root" class="containerdiv") 
                 h2= "Your profile"
                     div 
                         img(src='#{users.avatar}' alt="user avatar")
                         p Name: #{users.name}
                         p Email: #{users.email}
-                        p Miembro desde #{users.dateUp}
-                button(onclick="")= "Editar"
+                        p Miembro desde: #{users.dateUp}
+                button(class="send" onclick="editMode()")= "Editar"
 
-            //- div
-            //-     p= "Rellene los campos que quiera modificar:"
-            //-     form(action="/api/user" method="POST")
-            //-         input(type="text" placeholder="New Avatar url")
-            //-         input(type="text" placeholder="New Name") 
-            //-         input(type="email" placeholder="New Email")
-            //-         input(type="password" placeholder="New Password")
-            //-         p="Introduzca su contraseña actual para verificar sus modificaciones"
-            //-         input(type="password" placeholder="Current Password")    
-            //-         input(type="submit")= "Confirmar"
 
 
         include ./footer.pug

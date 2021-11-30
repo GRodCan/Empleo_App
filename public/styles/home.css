@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
+
+form {
+    margin-top: 3rem;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    border-style: solid;
+    border-color: rgba(16, 0, 59, 0.952);
+    border-radius: 4px;
+}
+#buscar {
+    color:rgba(16, 0, 59, 0.952);
+}

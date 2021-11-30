@@ -1,19 +1,23 @@
 header
     nav 
-        input(
-            type="checkbox"
-            id="menu")
-        label(
-            for="menu"
-        ) ☰
-        ul(
-            class="desplegable"
-        )  
-            a(href="/"): li  Inicio 
-            a(href="/signup"): li Registrarse 
-            a(href="/login"): li Ingresar
-            a(href="/favorites"): li Ofertas favoritas 
-            a(href="/profile"): li Perfil de usuario 
-            a(href="/"): li Salir
-            a(href="/users"): li Listado de usuarios 
-            a(href="/dashboard"): li Crear oferta     
+        div(class="mainHeader")
+            div(class="burger")
+                input(
+                    type="checkbox"
+                    id="menu")
+                label(
+                    for="menu"
+                ) ☰
+                ul(
+                    class="desplegable"
+                )  
+                    a(href="/"): li  Inicio 
+                    a(href="/signup"): li Registrarse 
+                    a(href="/login"): li Ingresar
+                    a(href="/favorites"): li Ofertas favoritas 
+                    a(href="/profile"): li Perfil de usuario 
+                    a(href="/"): li Salir
+                    a(href="/users"): li Listado de usuarios 
+                    a(href="/dashboard"): li Crear oferta
+            div(class="title") 
+                h1 "Esto es el titulo de la app"    

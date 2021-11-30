@@ -4,13 +4,16 @@ html
         title= "Login"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/login.css
     body
         include ./header.pug
         main
-            div
                 h2= "Login" 
                 form(action="/api/login" method="POST")
+                div(class="containerdiv")
+                    div(class="data")
                     input(type="email" placeholder="Email")
                     input(type="password" placeholder="Password")
-                    input(type="submit")
+                    div(class="send")
+                    input(class="send" type="submit")
         include ./footer.pug

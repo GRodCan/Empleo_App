@@ -1,12 +1,12 @@
 
 const offerts= [
-    {"offert": 1,
+    {"url": "https://http.cat/405",
     "title": "offertTitle",
     "salary": "offertSalary",
     "company": "company",
     "description": "description"
 }, 
-    {"offert": 2,
+    {"url": "https://http.cat/412",
     "title": "offertTitle",
     "salary": "offertSalary",
     "company": "company",

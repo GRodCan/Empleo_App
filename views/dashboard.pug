@@ -4,17 +4,20 @@ html
         title= "DashBoard"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/dashboard.css
+        script( src="/scripts/dashboard.js")
     body
-        include ./header.pug   
-        div 
-           each _offert in _offerts
-            a(href="#")
-                div
-                    h3 "titulo" #{_offert.title}
-                    p "salario" #{_offert.salary}
-                    p "empresa" #{_offert.company}
-                    button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
-                    button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
+        include ./header.pug
+        main   
+            div(id="root" class="eachOffer") 
+                each _offert in _offerts
+                    a(href="#")
+                        div(class="eachOffer")
+                            h3 "titulo" #{_offert.title}
+                            p "salario" #{_offert.salary}
+                            p "empresa" #{_offert.company}
+                            button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
+                            button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
                 div 
-        button Crear nueva oferta
+                    button(onClick="newOffert()") Crear nueva oferta
     include ./footer.pug

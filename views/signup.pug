@@ -4,35 +4,48 @@ html
         title= "Sign Up"
         style 
             include ../public/styles/hamburguesa.css
+            include ../public/styles/signup.css
     body
         include ./header.pug
-        input(
-            type="submit"
-            value="Continuar con Facebook"
-            id="facebook")
-        input(
-            type="submit"
-            value="Continuar con Google"
-            id="google")
-        form(
-            action="/api/user"
-            method="POST")
-            input(
-                type="text"
-                placeholder="Nombre de usuario"
-                name="nombre")
-            input(
-                type="email"
-                placeholder="Email"
-                name="email")
-            input(
-                type="password"
-                placeholder="Contraseña"
-                name="pass")
-            input(
-                type="text"
-                placeholder="URL de la imagen"
-                name="img")
-            button(
-                type="submit"
-            ) Registrar
+
+        div(class="containerdiv")
+            div(class="redes")
+                input(
+                    type="submit"
+                    value="Continuar con Facebook"
+                    id="facebook")
+                input(
+                    type="submit"
+                    value="Continuar con Google"
+                    id="google")
+                div(class="userdata")
+                    form(
+                        action="/api/user"
+                        method="POST")
+                        div(class="data")
+                          input(
+                              type="text"
+                              placeholder="Nombre de usuario"
+                              name="nombre")
+                        div(class="data")
+                          input(
+                              type="email"
+                              placeholder="Email"
+                              name="email")
+                        div(class="data")
+                          input(
+                              type="password"
+                              placeholder="Contraseña"
+                              name="pass")
+                        div(class="data")
+                          input(
+                              type="text"
+                              placeholder="URL de la imagen"
+                              name="img")
+                        div(class="data")
+                          button(
+                              type="submit"
+                          ) Registrar
+
+        include ./footer.pug
+
