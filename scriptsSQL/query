@@ -3,6 +3,8 @@ CREATE TABLE users
  nombre VARCHAR(50) NOT NULL,
  email VARCHAR(255) UNIQUE NOT NULL,
  pass VARCHAR(12) NOT NULL,
+ img VARCHAR(255)
+ fecha DATE not null default CURRENT_DATE
  administrador BOOLEAN NOT NULL
 );
 
@@ -13,7 +15,7 @@ CREATE TABLE favorites
 id_user int,
 FOREIGN KEY(id_user) REFERENCES users(id_user),
 title VARCHAR(200),
-content TEXT,
+company VARCHAR(200),
 salary VARCHAR(12),
 web VARCHAR(255)
 );

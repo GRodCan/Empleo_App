@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config()
 const viewsRouter=require('./routes/views');
-const apiSqlRouter=require('./routes/api');
+const apiSqlRouter=require('./routes/apiSQL');
 
 
 const app = express()

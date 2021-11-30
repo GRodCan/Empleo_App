@@ -35,6 +35,7 @@ const puppeteer = require('puppeteer');
             const tmp = {};
             tmp.title = document.querySelector('h1').innerText;
             tmp.company = document.querySelector('h2').innerText;
+            tmp.salary = document.querySelector('dd:nth-of-type(4n)').innerText
             return tmp
         });
         ofertas.push(oferta);

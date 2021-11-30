@@ -1,27 +1,12 @@
-// const api_Mongo = require('../controllers/api_mongo');
-const api_sql = require('../controllers/userApi');
+const api_Mongo = require('../controllers/api_mongo');
 const routes= require('express').Router();
 
-routes.post('/user', api_sql.createUser);
+routes.get('/search', api_Mongo.getAllOfferts);
 
-routes.put('/user', (req,res)=>res.send("Editar datos del perfil del usuario o administrador"));
+routes.post('/ads', api_Mongo.createOffert);
 
-routes.delete('/user', (req,res)=>res.send("Borrar un usuario de la base de datos (admin)"));
+routes.put('/ads', api_Mongo.editOffert);
 
-routes.post('/login', (req,res)=>res.send("Hacer login en la aplicación"));
-
-routes.post('/logout', (req,res)=>res.send("Salir de la aplicación"));
-
-// routes.get('/search', api_Mongo.getAllOfferts);
-
-// routes.post('/ads', api_Mongo.createOffert);
-
-// routes.put('/ads', api_Mongo.editOffert);
-
-// routes.delete('/ads', api_Mongo.deleteOffert);
-
-routes.post('/favorites', (req,res)=>res.send("Guardar favorito"));
-
-routes.delete('/favorites', (req,res)=>res.send("Borrar favorito"));
+routes.delete('/ads', api_Mongo.deleteOffert);
 
 module.exports=routes;

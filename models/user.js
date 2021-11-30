@@ -6,13 +6,13 @@ const pool = new Pool({
     password: "123456"
 });
 
-const createUser = async(nombre, email, pass, administrador=false) => {
-    console.log("Esto es lo que llega", nombre, email, pass);
+const createUser = async(nombre, email, pass, img, administrador=false) => {
+    console.log("Esto es lo que llega", nombre, email, pass, img);
     let client, result;
     try{
         client = await pool.connect();
-        const data = await client.query(`INSERT INTO users(nombre, email, pass, administrador)
-                                        VALUES ($1, $2, $3, $4)`,[nombre, email, pass, administrador])
+        const data = await client.query(`INSERT INTO users(nombre, email, pass, img, administrador)
+                                        VALUES ($1, $2, $3, $4, $5)`,[nombre, email, pass, img, administrador])
         result = data.rowCount
     }catch(err){
         console.log(err);
