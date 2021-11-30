@@ -3,7 +3,8 @@ const falsoUsuario = require ('../models/falsoUsuario')
 
 const views ={
     home: (req, res) => {
-        res.status(200).render('home')
+        let data=[]
+        res.status(200).render('home', {data:data})
       },
     signup: (req, res) => {
         res.status(200).render('signup')
