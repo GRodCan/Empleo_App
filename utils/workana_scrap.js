@@ -8,7 +8,7 @@ const puppeteer = require('puppeteer');
     await page.goto('https://www.workana.com/jobs?language=es&query=full+stack&region=154%2C039%2C155%2C151');
 ////////////////LO PONGO TAMAÑO PANTALLA////////////////////////////////////////////
     await page.setViewport({width:1440, height:614});
-///////////////////////ELIJO EL CUADRO DE TEXTO///////////////////////////////////////
+///////////////////////ELIJO EL CUADRO DE TEXTO Y ESCRIBO FULL STACK///////////////////////////////////////
     await page.type('#Query', 'full stack')
 ////////////////CLICKO EL BOTÖN DE BÜSQUEDA Y ESPERO AL ELEMENTO QUE QUIERO/////////////////////////////////
     await page.click('.search');
