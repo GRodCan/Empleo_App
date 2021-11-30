@@ -2,14 +2,14 @@ const puppeteer = require('puppeteer');
 
 const scrap_Domestika=async (query) => {
     if(!query){
-        query= "full-stack"
+        query= "freelance full stack"
     }
     console.log(query);
     const browser = await puppeteer.launch({headless: true});
 
     const page = await browser.newPage();
 
-    await page.goto('https://www.domestika.org/es/jobs/freelance');
+    await page.goto('https://www.domestika.org/es/jobs');
 
     await page.setViewport({width:1440, height:614});
 
