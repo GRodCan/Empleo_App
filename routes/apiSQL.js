@@ -3,9 +3,7 @@ const routes= require('express').Router();
 
 routes.post('/user', api_sql.createUser);
 
-routes.post('/user', api_sql.createUser);
-
-routes.put('/user', (req,res)=>res.send("Editar datos del perfil del usuario o administrador"));
+routes.put('/user', api_sql.editUserByEmail);
 
 routes.delete('/user', (req,res)=>res.send("Borrar un usuario de la base de datos (admin)"));
 

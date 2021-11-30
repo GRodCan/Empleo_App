@@ -40,14 +40,17 @@ const getUserByEmail = async(email) => {
     return result
 }
 
-const editUserByEmail = async(newPass, email, oldPass) => {
+const editUserByEmail = async(avatar, name, new_email, new_Password, current_email, current_Password) => {
     let client, result
     try{
         client = await pool.connect();
         const data = await client.query(`UPDATE users
-                                        SET pass = $1
-                                        WHERE email = $2
-                                        AND pass = $3`, [newPass, email, oldPass])
+                                        SET img = $1
+                                        SET nombre = $2
+                                        SET email = $3
+                                        SET pass = $4
+                                        WHERE email = $5
+                                        AND pass = $6`, [avatar, name, new_email, new_Password, current_email, current_Password])
         result = data.rowCount
     }catch{
         console.log(err);

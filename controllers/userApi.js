@@ -24,8 +24,9 @@ const createUser = async(req, res) => {
 
 const editUserByEmail = async(req, res) => {
     try {
-        const result = await User.editUserByEmail(req.body);
+        const result = await User.editUserByEmail(req.body.avatar, req.body.name, req.body.new_email, req.body.new_Password, req.body.current_email, req.body.current_Password);
         res.status(201).json({datos_guardados:result,status:"ÉXITO"});
+        res.redirect('http://localhost:3000/profile');
     } catch(err){
         res.status(400).json({"error":err});
     }

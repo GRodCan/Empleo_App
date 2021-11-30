@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
 
     const page = await browser.newPage();
 
-    await page.goto('https://www.domestika.org/es/jobs');
+    await page.goto('https://www.domestika.org/es/jobs/freelance');
 
     await page.setViewport({width:1440, height:614});
 
