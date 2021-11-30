@@ -1,22 +1,28 @@
 const Offert= require("../models/offert")
-const collection= require("../utils/mongoDB")
+const mongoDB= require("../utils/mongoDB")
+const scrapingDomestika= require("../utils/domestika_scrap");
+const scrap_Domestika = require("../utils/domestika_scrap");
 const offerts={
     getAllOfferts: async (req,res)=>{
-        try{
-            const query={};
-            const cursor = await collection.find(query);
-            const data= await cursor.toArray();
-            res.status(200).render('home', {data:data})
+            try{            
+            const data_mongo= await mongoDB.getAllOfferts();
+            const scrap= await scrap_Domestika(req.query.search)
+            const data= await scrap.concat(data_mongo)
+            console.log(req.query.search)
+            if(req.params.from){
+            res.status(200).render(req.params.from, {data:data})
+            }else{
+            res.status(200).send(data)
+            }
             }catch(err){
-                res.status(400).json({"error":err})
-        }
+            res.status(400).json({"error":err})
+         }
     },
 
     createOffert: async (req,res)=>{
         try{
             const offert = await new Offert(req.body); //genera nuevo documento con la info recibida del req
-            await collection.insertOne(offert); //lo guarda en BBDD
-            console.log("Offert created!");
+            mongoDB.getAllOfferts(offert)
             res.status(201).redirect("/dashboard");
             }catch(err){
                 res.status(400).json({"error":err})
@@ -25,9 +31,8 @@ const offerts={
     deleteOffert: async (req,res)=>{
         try{
             const query=req.body
-            const data= await collection.deleteOne(query); //lo guarda en BBDD
-            res.status(200).json(data);
-            console.log("Offert delete!");
+            const data= await mongoDB.deleteOffert(query)
+            res.status(200).json(data);;
             }catch(err){
                 res.status(400).json({"error":err})
         }
@@ -41,13 +46,8 @@ const offerts={
     */
     editOffert: async (req,res)=>{
         try{
-            const filter={title: req.body.title}
-            const updateDocument={
-                $set:req.body.update            
-            }
-            const result= await collection.updateOne(filter,updateDocument); //busca por titulo y aplica cambios en los cambios especificados en el req.body.update
+            const result= await mongoDB.editOffert(req.body.title,req.body.update);
             res.status(200).json(result);
-            console.log("Offert update!");
             }catch(err){
                 res.status(400).json({"error":err})
         }
