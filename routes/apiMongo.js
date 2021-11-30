@@ -11,7 +11,7 @@ routes.post('/login', (req,res)=>res.send("Hacer login en la aplicación"));
 
 routes.post('/logout', (req,res)=>res.send("Salir de la aplicación"));
 
-routes.get('/search', api_Mongo.getAllOfferts);
+routes.get('/search/:from?',  api_Mongo.getAllOfferts);
 
 routes.post('/ads', api_Mongo.createOffert);
 
