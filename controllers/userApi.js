@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const takeProperty = require('../utils/takeProperty');
 
 const getUsers = async(req, res) => {
     console.log(req.body.email);
@@ -24,9 +25,8 @@ const createUser = async(req, res) => {
 
 const editUserByEmail = async(req, res) => {
     try {
-        console.log(req.body)
-        console.log(Object.keys(req.body))
-        const result = await User.editUserByEmail(Object.keys(req.body));
+        let property = takeProperty(req.body)
+        const result = await User.editUserByEmail(property, req.body[`${property}`], req.body.current_email, req.body.current_pass);
         res.status(201).json({datos_guardados:result,status:"ÉXITO"});
     } catch(err){
         res.status(400).json({"error":err});
