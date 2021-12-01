@@ -30,7 +30,7 @@ const scrap_Glassdoor=async (query) => {
     const urls = await enlaces.filter((link,index) =>{ return enlaces.indexOf(link) === index})
     console.log("Esto son enlaces", urls.length)
 ////////////////COJO SOLO LOS 10 PRIMEROS
-    const urls2 = urls.slice(0, 10);
+    const urls2 = urls.slice(0, 5);
     console.log("Esto es recortado", urls2.length)
     const ofertas = [];
     for(let enlace of urls2){

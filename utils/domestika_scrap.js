@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 const scrap_Domestika=async (query) => {
     if(!query){
-        query= "full-stack"
+        query= "freelance full stack"
     }
     const browser = await puppeteer.launch({headless: true});
 
@@ -28,9 +28,9 @@ const scrap_Domestika=async (query) => {
     });
 
     console.log("Esto son enlaces", enlaces.length)
-
+    const urls = enlaces.slice(0, 5);
     const ofertas = [];
-    for(let enlace of enlaces){
+    for(let enlace of urls){
         await page.goto(enlace);
         await page.waitForSelector('h1');
 
