@@ -4,7 +4,6 @@ const scrap_Domestika=async (query) => {
     if(!query){
         query= "full-stack"
     }
-    console.log(query);
     const browser = await puppeteer.launch({headless: true});
 
     const page = await browser.newPage();
@@ -13,7 +12,7 @@ const scrap_Domestika=async (query) => {
 
     await page.setViewport({width:1440, height:614});
 
-    await page.type('#query', query)
+    await page.type('#query', 'freelance '+query)
 
     await page.click('.ais-SearchBox-submit');
     await page.waitForSelector('.job-item');
@@ -39,11 +38,13 @@ const scrap_Domestika=async (query) => {
             const tmp = {};
             tmp.title = document.querySelector('h1').innerText;
             tmp.company = document.querySelector('h2').innerText;
-            tmp.salary = document.querySelector('dd:nth-of-type(4n)').innerText
+            tmp.salary = document.querySelector('dd:nth-of-type(4n)').innerText;
+            tmp.url = window.location.href;
             return tmp
         });
         ofertas.push(oferta);
     }
+    console.log("ofertas Domestika sacadas")
     await browser.close();
     return ofertas
 };
