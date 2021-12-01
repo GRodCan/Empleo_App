@@ -24,18 +24,31 @@ const createUser = async(req, res) => {
 
 const editUserByEmail = async(req, res) => {
     try {
-        const result = await User.editUserByEmail(req.body);
+        console.log(req.body)
+        console.log(Object.keys(req.body))
+        const result = await User.editUserByEmail(Object.keys(req.body));
         res.status(201).json({datos_guardados:result,status:"ÉXITO"});
     } catch(err){
         res.status(400).json({"error":err});
     }
 };
 
+const loginUser = async(req, res) => {
+    try {
+        const result = await User.existUser(req.body.email, req.body.pass)
+        if(result == 1){
+            res.redirect('http://localhost:3000/profile')
+        }
+    } catch (err) {
+        res.status(400).json({"error":err});  
+    }
+}
 
 const users = {
     getUsers,
     createUser,
-    editUserByEmail
+    editUserByEmail,
+    loginUser
 }
 
 module.exports = users

@@ -11,8 +11,8 @@ html
             each _offert in _offerts
                 a(href="ofert.url")
                 div(class="eachOffer")
-                    h3 "titulo" #{_offert.title}
-                    p "salario" #{_offert.salary}
-                    p "empresa" #{_offert.company}
+                    h3 Título: #{_offert.title}
+                    p Salario: #{_offert.salary}
+                    p Empresa: #{_offert.company}
                         button(type="button" class="highlighted" onClick=quitarHighlight) like
     include ./footer.pug
