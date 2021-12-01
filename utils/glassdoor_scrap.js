@@ -1,6 +1,9 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
+const scrap_Glassdoor=async (query) => {
+    if(!query){
+        query= "full-stack"
+    }
     const browser = await puppeteer.launch({headless: true});
 
     const page = await browser.newPage();
@@ -9,7 +12,7 @@ const puppeteer = require('puppeteer');
 
     await page.setViewport({width:1440, height:614});
 
-    await page.type('#KeywordSearch', 'freelance full stack')
+    await page.type('#KeywordSearch', 'freelance '+query)
 
     await page.click('#HeroSearchButton');
     await page.waitForSelector('.react-job-listing');
@@ -26,11 +29,12 @@ const puppeteer = require('puppeteer');
 ///////////////////////ELIMINO LOS DUPLICADOS
     const urls = await enlaces.filter((link,index) =>{ return enlaces.indexOf(link) === index})
     console.log("Esto son enlaces", urls.length)
-////////////////COJO SOLO LOS 11 PRIMEROS
-    const urls2 = urls.slice(0, 11);
+////////////////COJO SOLO LOS 10 PRIMEROS
+    const urls2 = urls.slice(0, 10);
     console.log("Esto es recortado", urls2.length)
     const ofertas = [];
     for(let enlace of urls2){
+
         await page.goto(enlace);
         await page.waitForSelector('.css-17x2pwl');
 
@@ -38,10 +42,14 @@ const puppeteer = require('puppeteer');
             const tmp = {};
             tmp.title = document.querySelector('.css-17x2pwl').innerText;
             tmp.company = document.querySelector('.e11nt52q1').innerText;
-            return tmp
-        });
+            tmp.url = window.location.href;
+            return tmp;
+        },);
         ofertas.push(oferta);
     }
-    console.log(ofertas)
+    console.log("ofertas glassdoor sacadas")
     await browser.close();
-})();
+    return ofertas
+};
+
+module.exports =scrap_Glassdoor
