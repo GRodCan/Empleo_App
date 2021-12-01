@@ -5,13 +5,12 @@ html
         style 
             include ../public/styles/hamburguesa.css
             include ../public/styles/home.css    
+        script(src="./scripts/home.js")
     body
         include ./header.pug
         main
-            div(id =root)
-                form(
-                    action="/api/search/home"
-                    method="GET")  
+            div(id= "root")
+                div
                     input(
                         name="search"
                         type="text"
@@ -19,16 +18,17 @@ html
                         placeholder="Oferta")
                     button(
                         type="submit"
-                        value="home") Buscar
-                each _offert in data
-                    a(href= _offert.url)
-                        div
-                            h3 Titulo: #{_offert.title}
-                            p Salario: #{_offert.salary}
-                            p Empresa: #{_offert.company}
-                            p Descripción oferta: #{_offert.description}
+                        value="home"
+                        id="search_Button"
+                        onclick="search()") Buscar
+                //- each _offert in data
+                //-     a(href= _offert.url)
+                //-         div
+                //-             h3 Titulo: #{_offert.title}
+                //-             p Salario: #{_offert.salary}
+                //-             p Empresa: #{_offert.company}
+                //-             p Descripción oferta: #{_offert.description}
         include ./footer.pug
-        script(src="./scripts/home.js")
             //- Home de admin
             //- input(
             //-     type="submit"

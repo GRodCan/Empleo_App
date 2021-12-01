@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config()
 const viewsRouter=require('./routes/views');
-
+const cors = require("cors")
 const apiSqlRouter=require('./routes/apiSQL');
 const apiMongoRouter = require('./routes/apiMongo')
 
@@ -9,6 +9,7 @@ const apiMongoRouter = require('./routes/apiMongo')
 
 const app = express()
 const port = 3000
+app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 

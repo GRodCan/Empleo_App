@@ -15,6 +15,7 @@ const getAllOfferts=async ()=>{
     const query={};
      const cursor = await col.find(query);
     const data= await cursor.toArray();
+    console.log("Ofertas mongo adquiridas", data.length);
     return data
 }
 
