@@ -20,15 +20,6 @@ html
                     button(
                         type="submit"
                         value="home") Buscar
-                each _offert in data
-                    a(href= _offert.url)
-                        div
-                            h3 Titulo: #{_offert.title}
-                                a(id="favoriteIcon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css") 
-                                    i.fas.fa-star
-                            p Salario: #{_offert.salary} 
-                            p Empresa: #{_offert.company} 
-                            p Descripción oferta: #{_offert.description} 
         include ./footer.pug
             //- Home de admin
             //- input(
