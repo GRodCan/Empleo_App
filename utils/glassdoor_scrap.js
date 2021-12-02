@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
 const scrap_Glassdoor=async (query) => {
+    console.log("Empieza scrap Glassdoor");
     if(!query){
         query= "full-stack"
     }
@@ -47,7 +48,8 @@ const scrap_Glassdoor=async (query) => {
         },);
         ofertas.push(oferta);
     }
-    console.log("Ofertas Glassdoor obtenidas")
+
+    console.log("Scrap Glassdoor conseguido!")
     await browser.close();
     return ofertas
 };

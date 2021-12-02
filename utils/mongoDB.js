@@ -11,11 +11,13 @@ const db = client.db("EmpleoApp")
 const col= db.collection("Offerts")
 
 
-const getAllOfferts=async ()=>{
-    const query={};
-     const cursor = await col.find(query);
-    const data= await cursor.toArray();
-    return data
+const getOfferts=async (query)=>{
+    await col.createIndex( { title: "text" } )
+    const filter={$text:{$search:query}}
+     const cursor = await col.find(filter);
+     const data= await cursor.toArray();
+     console.log("Ofertas mongo adquiridas", data.length);
+     return data
 }
 
 const createOffert=async(offert)=>{
@@ -38,7 +40,7 @@ const editOffert=async (title,update)=>{
 }
 
 const methods={
-    getAllOfferts,
+    getOfferts,
     createOffert,
     deleteOffert,
     editOffert

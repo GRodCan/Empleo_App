@@ -1,6 +1,7 @@
 doctype html
 html
     head
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         title= "Favorites"
         style 
             include ../public/styles/hamburguesa.css
@@ -11,8 +12,10 @@ html
             each _offert in _offerts
                 a(href="ofert.url")
                 div(class="eachOffer")
-                    h3 Título: #{_offert.title}
-                    p Salario: #{_offert.salary}
-                    p Empresa: #{_offert.company}
-                        button(type="button" class="highlighted" onClick=quitarHighlight) like
+                    h3 "titulo" #{_offert.title}
+                        a(id="favoriteIcon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css") 
+                            i.fas.fa-star
+                    p "salario" #{_offert.salary}
+                    p "empresa" #{_offert.company}
+                    
     include ./footer.pug
