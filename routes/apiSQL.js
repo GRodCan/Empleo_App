@@ -1,5 +1,6 @@
 const api_sql = require('../controllers/userApi');
 const routes= require('express').Router();
+const favorites = require('../controllers/favorites.js')
 
 routes.post('/user', api_sql.createUser);
 
@@ -13,7 +14,7 @@ routes.post('/login', (req,res)=>res.send("Hacer login en la aplicación"));
 
 routes.post('/logout', (req,res)=>res.send("Salir de la aplicación"));
 
-routes.post('/favorites', (req,res)=>res.send("Guardar favorito"));
+routes.post('/favorites', favorites.createFavorite);
 
 routes.delete('/favorites', (req,res)=>res.send("Borrar favorito"));
 
