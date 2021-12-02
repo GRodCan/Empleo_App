@@ -1,11 +1,11 @@
 const falsoObjeto=require ("../models/falsoObjeto.js")
 const falsoUsuario = require ('../models/falsoUsuario')
 const apiMongo= require('../utils/mongoDB')
+const offertSQL = require('../models/favorites')
 
 const views ={
     home: (req, res) => {        
-        let data=[]
-        res.status(200).render('home', {data:data})
+        res.status(200).render('home')
       },
     signup: (req, res) => {
         res.status(200).render('signup')
@@ -13,8 +13,9 @@ const views ={
     login: (req, res) => {
         res.status(200).render('login')
       },
-    favorites: (req, res) => {
-        res.status(200).render('favorites', {_offerts:falsoObjeto})
+    favorites: async(req, res) => {
+        const offerts = await offertSQL.getFavorites()
+        res.status(200).render('favorites', {_offerts:offerts})
       },
     profile: (req, res) => {
         res.status(200).render('profile', {users: falsoUsuario})
