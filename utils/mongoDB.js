@@ -13,7 +13,8 @@ const col= db.collection("Offerts")
 
 const getOfferts=async (query)=>{
     await col.createIndex( { title: "text" } )
-    const filter={$text:{$search:query}}
+    const filter={}
+    if(query){filter={$text:{$search:query}}}
      const cursor = await col.find(filter);
      const data= await cursor.toArray();
      console.log("Ofertas mongo adquiridas", data.length);
