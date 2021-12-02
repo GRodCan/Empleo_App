@@ -27,18 +27,12 @@ p {
 button {
     margin-bottom: 0.5rem;
     margin-left:0.5rem; 
-    font-family: 'Montserrat', sans-serif;
-}
-form {
-    margin-top: 3rem;
+   
 }
 
-input {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    border-style: solid;
-    border-color: rgba(16, 0, 59, 0.952);
-    border-radius: 4px;
+#favoriteIcon {
+    size: 1.5rem;
+    color: yellow;
 }
 
 .crearoferta {
