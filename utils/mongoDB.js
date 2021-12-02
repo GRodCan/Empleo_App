@@ -13,7 +13,7 @@ const col= db.collection("Offerts")
 
 const getOfferts=async (query)=>{
     await col.createIndex( { title: "text" } )
-    const filter={}
+    let filter={}
     if(query){filter={$text:{$search:query}}}
      const cursor = await col.find(filter);
      const data= await cursor.toArray();
