@@ -6,10 +6,10 @@ const offerts={
     getAllOfferts: async (req,res)=>{
             try{
             console.log(req.params.search);
-            const data_mongo= await mongoDB.getAllOfferts();
+            const data_mongo= await mongoDB.getOfferts(req.params.search);
             const scrap_D= await scrap_Domestika(req.params.search)
             const scrap_G= await scrap_Glassdoor(req.params.search)
-            const scrap= await scrap_G.concat(scrap_D)
+            const scrap= await scrap_D.concat(scrap_G)
             const data= await scrap.concat(data_mongo)        
             res.status(200).json(data)
             }catch(err){
