@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
+const scrap_Workana = async () => {
     const browser = await puppeteer.launch({headless: true});
 
     const page = await browser.newPage();
@@ -14,6 +14,14 @@ const puppeteer = require('puppeteer');
     await page.click('.search');
     await page.waitForSelector('.project-item');
 ////////////////////////RECOJO LOS ENLACES Y LOS METO EN UN ARRAY///////////////////////////////
+    const salaries = await page.evaluate(()=> {
+        const elements = document.querySelectorAll('h4 .values')
+        const sal = [];
+        for(let element of elements) {
+            sal.push(element.innerText)
+        }
+        return sal
+    })
     const enlaces = await page.evaluate( () => {
         const elements = document.querySelectorAll('.project-item .project-header h2 a')
         
@@ -23,22 +31,28 @@ const puppeteer = require('puppeteer');
         }
         return links;
     });
-
     console.log("Esto son enlaces", enlaces.length)
 /////////////////////////ME VOY METIENDO EN LOS ENLACES DEL ARRAY Y EXTRAIGO LA INFO QUE QUIERO
     const ofertas = [];
     for(let enlace of enlaces){
         await page.goto(enlace);
         await page.waitForSelector('h1');
-
         const oferta = await page.evaluate(()=>{
             const tmp = {};
             tmp.title = document.querySelector('h1').innerText;
-            tmp.description = document.querySelector('.expander').innerText;
+            tmp.company = "Clicka en la oferta para más información";
+            tmp.salary = "";
+            tmp.url = window.location.href;
             return tmp
         });
         ofertas.push(oferta);
     }
-    console.log(ofertas)
+    for(let i = 0; i < ofertas.length; i++){
+        ofertas[i].salary = salaries[i]
+    }
     await browser.close();
-})();
+    console.log("Ofertas workana extraídas")
+    return ofertas
+};
+
+module.exports = scrap_Workana
