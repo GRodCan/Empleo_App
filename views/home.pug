@@ -1,6 +1,7 @@
 doctype html
 html
     head
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         title= "Home"
         style 
             include ../public/styles/hamburguesa.css
@@ -24,9 +25,11 @@ html
                     a(href= _offert.url)
                         div
                             h3 Titulo: #{_offert.title}
-                            p Salario: #{_offert.salary}
-                            p Empresa: #{_offert.company}
-                            p Descripción oferta: #{_offert.description}
+                                a(id="favoriteIcon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css") 
+                                    i.fas.fa-star
+                            p Salario: #{_offert.salary} 
+                            p Empresa: #{_offert.company} 
+                            p Descripción oferta: #{_offert.description} 
         include ./footer.pug
         script(src="./scripts/home.js")
             //- Home de admin

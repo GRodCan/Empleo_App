@@ -5,6 +5,7 @@ html
         style 
             include ../public/styles/hamburguesa.css
             include ../public/styles/dashboard.css
+            include ../public/styles/favorites
         script( src="/scripts/dashboard.js")
     body
         include ./header.pug
@@ -14,6 +15,8 @@ html
                     a(href="#")
                         div(class="eachOffer")
                             h3 "titulo" #{_offert.title}
+                                a(id="favoriteIcon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css") 
+                                    i.fas.fa-star
                             p "salario" #{_offert.salary}
                             p "empresa" #{_offert.company}
                             button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
