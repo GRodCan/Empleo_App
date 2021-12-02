@@ -40,16 +40,34 @@ const getUserByEmail = async(email) => {
     return result
 }
 
-const editUserByEmail = async(newPass, email, oldPass) => {
+const editUserByEmail = async(propiedad, newValue, email, oldPass) => {
     let client, result
     try{
         client = await pool.connect();
-        const data = await client.query(`UPDATE users
-                                        SET pass = $1
-                                        WHERE email = $2
-                                        AND pass = $3`, [newPass, email, oldPass])
+        let query = `UPDATE users
+                    SET ${propiedad} = $1                                         
+                    WHERE email = $2
+                    AND pass = $3`
+        const data = await client.query(query, [newValue, email, oldPass])
         result = data.rowCount
-    }catch{
+    }catch(err){
+        console.log(err);
+        throw err;
+    }finally{
+        client.release()
+    }
+    return result
+}
+
+const existUser = async(email, pass) => {
+    try {
+        client = await pool.connect();
+        const data = await client.query(`SELECT 
+                                        email
+                                        FROM users
+                                        WHERE email = $1 AND pass = $2`,[email, pass])
+        result = data.rowCount
+    }catch(err){
         console.log(err);
         throw err;
     }finally{
@@ -61,7 +79,8 @@ const editUserByEmail = async(newPass, email, oldPass) => {
 const users = {
     createUser,
     getUserByEmail,
-    editUserByEmail
+    editUserByEmail,
+    existUser
 }
 
 module.exports = users;
@@ -72,8 +91,11 @@ module.exports = users;
 // createUser(newUser)
 //     .then(data=>console.log(data))
 
-// getUserByEmail("odioalositalianos@ciber.com")
+// getUserByEmail("gante@yahoo.com")
 //     .then(data=>console.log(data))
 
-// editUserByEmail("gritos", "odioalositalianos@ciber.com", "vocerio")
+// editUserByEmail("pass", "654321", "gante@yahoo.com", "123456")
 //     .then(data=>console.log(data));
+
+// existUser("gante@yahoo.com", "123456")
+//     .then(data=>console.log(data))

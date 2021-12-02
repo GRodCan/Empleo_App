@@ -23,7 +23,7 @@ const views ={
         res.status(200).render('users', {users: falsoUsuario})
       },
     dashboard: async (req, res) => {
-        const offerts= await apiMongo.getAllOfferts()
+        const offerts= await apiMongo.getOfferts()
         res.status(200).render('dashboard', {_offerts:offerts})
       }
 };

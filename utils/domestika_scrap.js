@@ -1,8 +1,9 @@
 const puppeteer = require('puppeteer');
 
 const scrap_Domestika=async (query) => {
+    console.log("Empieza scrap Domestika");
     if(!query){
-        query= "full-stack"
+        query= "freelance full stack"
     }
     const browser = await puppeteer.launch({headless: true});
 
@@ -23,12 +24,15 @@ const scrap_Domestika=async (query) => {
         const links = [];
         for(let element of elements) {
             links.push(element.href);
+            if (links.length === 5)
+            break;
         }
         return links;
     });
-
+    
     console.log("Esto son enlaces", enlaces.length)
-
+    const urls = enlaces.slice(0, 5);
+    console.log("Me quedo:", urls.length)
     const ofertas = [];
     for(let enlace of enlaces){
         await page.goto(enlace);
@@ -44,7 +48,7 @@ const scrap_Domestika=async (query) => {
         });
         ofertas.push(oferta);
     }
-    console.log("ofertas Domestika sacadas")
+    console.log("Scrap Domestika conseguido!")
     await browser.close();
     return ofertas
 };

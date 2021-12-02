@@ -1,7 +1,7 @@
 const api_Mongo = require('../controllers/api_mongo');
 const routes= require('express').Router();
 
-routes.get('/search/:from?',  api_Mongo.getAllOfferts);
+routes.get('/search/:search?',  api_Mongo.getAllOfferts);
 
 routes.post('/ads', api_Mongo.createOffert);
 

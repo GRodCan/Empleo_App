@@ -6,13 +6,12 @@ html
         style 
             include ../public/styles/hamburguesa.css
             include ../public/styles/home.css    
+        script(src="./scripts/home.js")
     body
         include ./header.pug
         main
-            div(id =root)
-                form(
-                    action="/api/search/home"
-                    method="GET")  
+            div(id= "root")
+                div
                     input(
                         name="search"
                         type="text"
@@ -31,7 +30,6 @@ html
                             p Empresa: #{_offert.company} 
                             p Descripción oferta: #{_offert.description} 
         include ./footer.pug
-        script(src="./scripts/home.js")
             //- Home de admin
             //- input(
             //-     type="submit"

@@ -4,13 +4,11 @@ const favorites = require('../controllers/favorites.js')
 
 routes.post('/user', api_sql.createUser);
 
-routes.post('/user', api_sql.createUser);
-
-routes.put('/user', (req,res)=>res.send("Editar datos del perfil del usuario o administrador"));
+routes.post('/user/edit', api_sql.editUserByEmail);
 
 routes.delete('/user', (req,res)=>res.send("Borrar un usuario de la base de datos (admin)"));
 
-routes.post('/login', (req,res)=>res.send("Hacer login en la aplicación"));
+routes.post('/login', api_sql.loginUser);
 
 routes.post('/logout', (req,res)=>res.send("Salir de la aplicación"));
 

@@ -10,10 +10,10 @@ html
         main
                 h2= "Login" 
                 form(action="/api/login" method="POST")
-                div(class="containerdiv")
-                    div(class="data")
-                    input(type="email" placeholder="Email")
-                    input(type="password" placeholder="Password")
-                    div(class="send")
-                    input(class="send" type="submit")
+                    div(class="containerdiv")
+                        div(class="data")
+                        input(type="email" placeholder="Email" name="email")
+                        input(type="password" placeholder="Password" name="pass")
+                        div(class="send")
+                        button(class="send" type="submit") Ingresar
         include ./footer.pug

@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
 const scrap_Glassdoor=async (query) => {
+    console.log("Empieza scrap Glassdoor");
     if(!query){
         query= "full-stack"
     }
@@ -23,17 +24,17 @@ const scrap_Glassdoor=async (query) => {
         const links = [];
         for(let element of elements) {
             links.push(element.href);
+            if (links.length === 10)
+            break;
         }
+        console.log("array filtrado", links)
         return links;
     });
-///////////////////////ELIMINO LOS DUPLICADOS
+    ///////////////////////ELIMINO LOS DUPLICADOS
     const urls = await enlaces.filter((link,index) =>{ return enlaces.indexOf(link) === index})
     console.log("Esto son enlaces", urls.length)
-////////////////COJO SOLO LOS 10 PRIMEROS
-    const urls2 = urls.slice(0, 10);
-    console.log("Esto es recortado", urls2.length)
     const ofertas = [];
-    for(let enlace of urls2){
+    for(let enlace of urls){
 
         await page.goto(enlace);
         await page.waitForSelector('.css-17x2pwl');
@@ -47,7 +48,8 @@ const scrap_Glassdoor=async (query) => {
         },);
         ofertas.push(oferta);
     }
-    console.log("ofertas glassdoor sacadas")
+
+    console.log("Scrap Glassdoor conseguido!")
     await browser.close();
     return ofertas
 };
