@@ -1,14 +1,15 @@
 const Offert= require("../models/offert")
 const mongoDB= require("../utils/mongoDB")
-const scrap_Glassdoor = require("../utils/glassdoor_scrap")
+// const scrap_Glassdoor = require("../utils/glassdoor_scrap")
+const scrap_Workana = require("../utils/workana_scrap");
 const scrap_Domestika = require("../utils/domestika_scrap");
 const offerts={
     getAllOfferts: async (req,res)=>{
             try{            
             const data_mongo= await mongoDB.getAllOfferts();
-            const scrap_G= await scrap_Glassdoor(req.query.search)
+            const scrap_W= await scrap_Workana(req.query.search)
             const scrap_D= await scrap_Domestika(req.query.search)
-            const scrap= scrap_G.concat(scrap_D)
+            const scrap= scrap_W.concat(scrap_D)
             const data= await scrap.concat(data_mongo)
             console.log(req.query.search)
             if(req.params.from){

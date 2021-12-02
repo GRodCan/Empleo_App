@@ -23,6 +23,8 @@ const scrap_Domestika=async (query) => {
         const links = [];
         for(let element of elements) {
             links.push(element.href);
+            if (links.length === 5)
+            break;
         }
         return links;
     });
@@ -30,7 +32,7 @@ const scrap_Domestika=async (query) => {
     console.log("Esto son enlaces", enlaces.length)
     const urls = enlaces.slice(0, 5);
     const ofertas = [];
-    for(let enlace of urls){
+    for(let enlace of enlaces){
         await page.goto(enlace);
         await page.waitForSelector('h1');
 
