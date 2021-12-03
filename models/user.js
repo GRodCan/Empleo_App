@@ -27,16 +27,22 @@ const getUserByEmail = async(email) => {
     let client, result;
     try{
         client = await pool.connect();
-        const data = await client.query(`SELECT u.nombre, u.email, u.pass, u.administrador
+        if(email){
+        const data = await client.query(`SELECT u.nombre, u.email, u.administrador
                                         FROM users AS u
                                         WHERE u.email=$1`, [email])
         result = data.rows
+        }else{
+        const data = await client.query(`SELECT * FROM users`)
+        result = data.rows
+        }
     }catch(err){
         console.log(err);
         throw err;
     }finally{
         client.release();
     }
+    console.log(result);
     return result
 }
 
@@ -56,8 +62,8 @@ const editUserByEmail = async(propiedad, newValue, email, oldPass) => {
     }finally{
         client.release()
     }
-    return result
-}
+    return result;
+};
 
 const existUser = async(email, pass) => {
     try {
@@ -67,6 +73,7 @@ const existUser = async(email, pass) => {
                                         FROM users
                                         WHERE email = $1 AND pass = $2`,[email, pass])
         result = data.rowCount
+        
     }catch(err){
         console.log(err);
         throw err;
@@ -80,11 +87,11 @@ const users = {
     createUser,
     getUserByEmail,
     editUserByEmail,
-    existUser
+    existUser,
 }
 
 module.exports = users;
-
+getUserByEmail("batman@test.com")
 //Pruebas
 
 // let newUser = {nombre:"Julio Ruiz Mateos", email:"quetepegoleches@ciber.com", pass:"superman", administrador:false};
