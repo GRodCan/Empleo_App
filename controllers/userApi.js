@@ -38,6 +38,8 @@ const loginUser = async(req, res) => {
         const result = await User.existUser(req.body.email, req.body.pass)
         if(result == 1){
             res.redirect('http://localhost:3000/profile')
+        }else{
+            res.redirect('http://localhost:3000/login')
         }
     } catch (err) {
         res.status(400).json({"error":err});  
