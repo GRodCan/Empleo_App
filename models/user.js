@@ -3,7 +3,7 @@ const pool = new Pool({
     user: "postgres",
     host: "localhost",
     database: "EmpleoApp",
-    password: "123456"
+    password: process.env.DATABASE_SQLPASS
 });
 
 const createUser = async(nombre, email, pass, img, administrador=false) => {
@@ -27,7 +27,7 @@ const getUserByEmail = async(email) => {
     let client, result;
     try{
         client = await pool.connect();
-        const data = await client.query(`SELECT u.nombre, u.email, u.administrador
+        const data = await client.query(`SELECT u.nombre, u.email, u.pass, u.administrador
                                         FROM users AS u
                                         WHERE u.email=$1`, [email])
         result = data.rows
