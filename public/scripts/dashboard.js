@@ -1,12 +1,12 @@
 const newOffert=()=>{
     document.getElementById("root").innerHTML=`
+    <h2>New Offer</h2>
     <form action="/api/ads" method="POST">
-    <input type="text" name="title" id="" placeholder="Titulo oferta" value="">
-    <input type="text" name="company" id="" placeholder="Compañia" value="">
-    <input type="number" name="salary" id="" placeholder="Salario" value="">
-    <textarea name="description" id="" cols="30" rows="10" placeholder="Descripción" value=""></textarea>
-    <input type="url" name="url" id="" placeholder="Url Oferta" value="">
-    <button type="submit">Crear offert</button>
+    <input type="text" name="title" id="form_title" placeholder="Titulo oferta" value="" class="form_input">
+    <input type="text" name="company" id="form_company" placeholder="Compañia" value="" class="form_input">
+    <input type="number" name="salary" id="form_salary" placeholder="Salario" value="" class="form_input">
+    <input type="url" name="url" id="form_url" placeholder="Url Oferta" value="" class="form_input">
+    <button type="submit" id="createOffer_Button">Create new offer</button>
     </form>
     `
 }

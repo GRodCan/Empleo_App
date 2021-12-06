@@ -1,6 +1,9 @@
 
-
+const changeWelcome=()=>{
+    document.getElementById("welcome").innerHTML= `<img id="loading" src="https://acegif.com/wp-content/uploads/loading-36.gif">`
+}
 const printSearch=async (dataArr)=>{
+    document.getElementById("welcome").innerHTML= `<h2>Good Luck!</h2>`
     if(document.getElementById("searchs")){
         document.getElementById("root").removeChild(document.getElementById("searchs"))
     }
@@ -8,27 +11,19 @@ const printSearch=async (dataArr)=>{
 
 
     for(let i in dataArr){
-            document.getElementById("searchs").innerHTML+=`<div>
-            <a href="${dataArr[i].url}"><div class="search">
-            <h3>Offert: ${dataArr[i].title}</h3>
-            <p>Company:${dataArr[i].company}</p>
-            <p>Salary:${dataArr[i].salary}</p>
+            document.getElementById("searchs").innerHTML+=`<div class="offert">
+            <a href="${dataArr[i].url}" class="search"><div>
+            <h3 class="data">${dataArr[i].title}</h3>
+            <p class="data">Company: ${dataArr[i].company}</p>
+            <p class="data">Salary: ${dataArr[i].salary}</p>
             </div>
             </a>
-            <input id="favoriteIcon" class="icon" type="image" src="https://affaso.com/wp-content/uploads/2020/06/5-point-stars-png-star-icon-flat-11562958768wpf63hu4tq.png">
+            <div id="buttonFav">
+            <input id="favoriteIcon" class="icon" type="image" src="https://cdn-icons.flaticon.com/png/512/2377/premium/2377810.png?token=exp=1638814242~hmac=9c4df675201d18bd309b5946f23e113d">
+            </div>            
             </div>`
-        }
+    }
 }
- 
-// const search_Button= document.getElementById("search_Button").addEventListener("click", async()=>{
-//     let search= await document.getElementById("buscar").value;
-//     if(!search){ 
-//         search=await "full-stack"
-//     };
-//     const response = await fetch(`/api/search/${search}`);
-//     const data = await response.json();
-   
-//     await printSearch(data)})
 
 const search= async()=>{
         let search= await document.getElementById("buscar").value;
@@ -38,4 +33,5 @@ const search= async()=>{
         const response = await fetch(`/api/search/${search}`);
         const data = await response.json();
        
-        await printSearch(data)}
+        await printSearch(data)
+}

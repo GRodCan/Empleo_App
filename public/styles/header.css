@@ -1,27 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
 
-
 .mainHeader {
     width: 99vw;
     display: flex;
     background: url('https://img.freepik.com/vector-gratis/vector-tecnologia-circulo-bulbo-azul-claro-lampara-fondo-tecnologia_43778-422.jpg?size=626&ext=jpg') no-repeat center center/cover;
 
 }
-
 .desplegable {
     display: none;
     border-radius: 5px;
 }
-
 #menu:checked  ~ ul{
     display:block;
     border-radius: 5px;
 }
-
 #menu {
     display:none;
 }
-
 label {
     box-sizing: border-box;
     display: inline-block;
@@ -39,12 +34,10 @@ label {
     margin-top: 0.9rem;
     margin-left: 0.5rem;
 }
-
 label:hover {
     background-color:  rgba(255, 255, 255, 0.952);
     color: rgba(16, 0, 59, 0.952);
 }
-
 /* Estilo cuando está expandido */
 ul {
     position: absolute;
@@ -54,7 +47,6 @@ ul {
     z-index: 1;
     border-radius: 5px;
 }
-
 li {
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -68,11 +60,9 @@ li {
     border-color: rgb(14, 0, 51);
     border-width: 0.03rem;
 }
-
 a {
     text-decoration: none;
 }
-
 li:hover {
     filter: brightness(110%);
     cursor: pointer;
@@ -87,19 +77,5 @@ li:hover {
     color: white;
  }
 
- /* PARA FOOTER */
- p.footer {
-    font-family: 'Montserrat', sans-serif;
-    width: 99vw;
-    color: white;
-    height: 1.3rem;
-    position: bottom;
-    display: flex;
-    margin-left: 0%;
-    padding-left: 4rem;
-    background: url('https://img.freepik.com/vector-gratis/vector-tecnologia-circulo-bulbo-azul-claro-lampara-fondo-tecnologia_43778-422.jpg?size=626&ext=jpg') no-repeat center center/cover;
-}
-    
-    /*url('https://www.wallpapertip.com/wmimgs/174-1749305_desktop-hd-8-bit-wallpaper-data-src-8.jpg') no-repeat center center/cover;   */
  
  

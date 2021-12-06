@@ -3,23 +3,27 @@ html
     head
         title= "Users"
         style 
-            include ../public/styles/hamburguesa.css
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
+            include ../public/styles/users.css
     body
         include ./header.pug
-        div
-            each user in users
-                a(href="#")
-                    div
-                        h3 Nombre: #{user.nombre}
-                        p Email: #{user.email}
-                        p Contraseña: #{user.pass}
-                        p Administrador: #{user.administrador}
-                        p Fecha de alta: #{user.fecha}
-                        p Avatar:
-                        img(src=user.img alt="Avatar del usuario")
-                        button(type="button" class="edit" onClick=funcionEditar) Editar Usuario
-                        button(type="button" class="delete" onClick=funcionEliminar) Eliminar Usuario 
-            a(href="signup"): button Crear usuario 
-        
+        main
+            div(id= "root")
+                div(id= "users")
+                    each user in users
+                        a(href="#")
+                            div
+                                h3 Nombre: #{user.nombre}
+                                p Email: #{user.email}
+                                p Contraseña: #{user.pass}
+                                p Administrador: #{user.administrador}
+                                p Fecha de alta: #{user.fecha}
+                                p Avatar:
+                                img(src=user.img alt="Avatar del usuario")
+                                button(type="button" class="edit" onClick=funcionEditar) Editar Usuario
+                                button(type="button" class="delete" onClick=funcionEliminar) Eliminar Usuario 
+                a(href="signup"): button Crear usuario 
+            
         include ./footer.pug
 

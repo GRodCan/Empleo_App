@@ -3,11 +3,13 @@ html
     head
         title= "Login"
         style 
-            include ../public/styles/hamburguesa.css
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
             include ../public/styles/login.css
     body
         include ./header.pug
         main
+            div(id= "root")
                 h2= "Login" 
                 form(action="/api/login" method="POST")
                     div(class="containerdiv")
