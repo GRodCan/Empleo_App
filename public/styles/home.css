@@ -6,7 +6,7 @@ div#busqueda {
     align-items: center;
     justify-content: center;
     row-gap: 1vh;
-    margin-top: -2vh;
+    margin-top: 0vh;
     color:rgba(16, 0, 59, 0.952);
 }
 
@@ -22,10 +22,13 @@ input#buscar{
     text-indent: 1vh;
 }
 button{
-    height: 4vh;
-    width: 25vw;
-    border-radius: 0.5vh;
+    font-family: 'Montserrat', sans-serif;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: #3374ffa6;
+    box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
     font-size: 3vh;
+    width: 35vw;
 }
 div#searchs{
     display: flex;
@@ -38,19 +41,17 @@ div.offert{
     justify-content: space-between;
     align-items: center;
     border-style: solid;
+    border-color: slategrey;
     padding: 1vh 4vw 1vh 4vw;
     border-radius: 15px;
     margin: 0.5vh 2vw;
-    background-color: #3374ffa6;
-    opacity: 0.85;
+    background-color: rgba(211, 220, 228, 0.39);
     box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
 }
-div.offert:hover{
-    opacity: 1;
-}
+
 .data{
     margin: 1vh 0vw;
-    color: aliceblue; 
+    color: black; 
 }
 h3.data{
     font-size: 3vh;
@@ -60,7 +61,7 @@ p.data{
 }
 a.search:link, a.search:visited, a.search:active {
     text-decoration:none;
-    color:aliceblue;
+    color:black;
 }
 input#favoriteIcon{
     height: 5.5vh;  

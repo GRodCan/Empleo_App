@@ -16,7 +16,7 @@ const printSearch=async (dataArr)=>{
             </div>
             </a>
             <div id="buttonFav">
-            <input id="favoriteIcon" class="icon" type="image" src="https://affaso.com/wp-content/uploads/2020/06/5-point-stars-png-star-icon-flat-11562958768wpf63hu4tq.png">
+            <input id="favoriteIcon" class="icon" type="image" src="https://cdn-icons.flaticon.com/png/512/2377/premium/2377810.png?token=exp=1638814242~hmac=9c4df675201d18bd309b5946f23e113d">
             </div>            
             </div>`
     }
