@@ -1,6 +1,10 @@
 const puppeteer = require('puppeteer');
 
-const scrap_Workana = async () => {
+const scrap_Workana = async (query) => {
+    console.log("Empieza scrap Workana");
+    if(!query){
+        query= "full stack"
+    }
     const browser = await puppeteer.launch({headless: true});
 
     const page = await browser.newPage();
@@ -9,7 +13,7 @@ const scrap_Workana = async () => {
 ////////////////LO PONGO TAMAÑO PANTALLA////////////////////////////////////////////
     await page.setViewport({width:1440, height:614});
 ///////////////////////ELIJO EL CUADRO DE TEXTO Y ESCRIBO FULL STACK///////////////////////////////////////
-    await page.type('#Query', 'full stack')
+    await page.type('#Query', query)
 ////////////////CLICKO EL BOTÖN DE BÜSQUEDA Y ESPERO AL ELEMENTO QUE QUIERO/////////////////////////////////
     await page.click('.search');
     await page.waitForSelector('.project-item');

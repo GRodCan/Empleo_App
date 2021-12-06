@@ -3,7 +3,7 @@ const pool = new Pool({
     user: "postgres",
     host: "localhost",
     database: "EmpleoApp",
-    password: "123456"
+    password: process.env.DATABASE_SQLPASS
 });
 
 const getFavorites = async() => {
