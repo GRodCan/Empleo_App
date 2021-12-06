@@ -5,7 +5,8 @@ html
         title= "Home"
         style 
             include ../public/styles/hamburguesa.css
-            include ../public/styles/home.css    
+            include ../public/styles/home.css 
+            include ../public/styles/favorites.css   
         script(src="./scripts/home.js")
     body
         include ./header.pug
@@ -19,13 +20,21 @@ html
                         placeholder="Oferta")
                     button(
                         type="submit"
-                        value="home") Buscar
+                        value="home"
+                        id="search_Button"
+                        onclick="search()") Buscar
+                //- each _offert in data
+                //-     a(href= _offert.url)
+                //-         div
+                //-             h3 Titulo: #{_offert.title}
+                //-             p Salario: #{_offert.salary}
+                //-             p Empresa: #{_offert.company}
+                //-             p Descripción oferta: #{_offert.description}
         include ./footer.pug
             //- Home de admin
             //- input(
             //-     type="submit"
             //-     value="Usuarios")
-
             //- input(
             //-     type="submit"
             //-     value="Ofertas")

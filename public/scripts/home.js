@@ -7,19 +7,28 @@ const printSearch=async (dataArr)=>{
     document.getElementById("root").innerHTML+="<div id=searchs></div>"
 
 
+
+
     for(let i in dataArr){
-            document.getElementById("searchs").innerHTML+=`<div>
+            document.getElementById("searchs").innerHTML+=`
+            <div>
+            <form id="sendTodatabase" action="/favorites" method="POST">
             <a href="${dataArr[i].url}"><div class="search">
             <h3>Offert: ${dataArr[i].title}</h3>
             <p>Company:${dataArr[i].company}</p>
             <p>Salary:${dataArr[i].salary}</p>
             </div>
-            </a>
-            <input id="favoriteIcon" class="icon" type="image" src="https://affaso.com/wp-content/uploads/2020/06/5-point-stars-png-star-icon-flat-11562958768wpf63hu4tq.png">
-            </div>`
+                <i id="favoriteIcon" type="submit" class="fas fa-star"></i>
+            </form>`
         }
 }
  
+            // <input> 
+            // <i id="favoriteIcon" class="fas fa-star"></i>
+            // <input/>
+
+
+
 // const search_Button= document.getElementById("search_Button").addEventListener("click", async()=>{
 //     let search= await document.getElementById("buscar").value;
 //     if(!search){ 
