@@ -91,7 +91,7 @@ const users = {
 }
 
 module.exports = users;
-getUserByEmail("batman@test.com")
+// getUserByEmail("batman@test.com")
 //Pruebas
 
 // let newUser = {nombre:"Julio Ruiz Mateos", email:"quetepegoleches@ciber.com", pass:"superman", administrador:false};
