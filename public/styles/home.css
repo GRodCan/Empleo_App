@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
 
-#buscar {
+div#busqueda {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: -2vh;
-    margin-top: -1vh;
+    row-gap: 1vh;
+    margin-top: -2vh;
     color:rgba(16, 0, 59, 0.952);
 }
 
-input{
+input#buscar{
     height: 3vh;
     border-style: solid;
     border-color: rgba(16, 0, 59, 0.952);
@@ -31,4 +31,37 @@ div#searchs{
     display: flex;
     flex-direction: column;
     height: 70vh;
+}
+
+div.offert{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid;
+    padding: 1vh 4vw 1vh 4vw;
+    border-radius: 15px;
+    margin: 0.5vh 2vw;
+    background-color: #3374ffa6;
+    opacity: 0.85;
+    box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
+}
+div.offert:hover{
+    opacity: 1;
+}
+.data{
+    margin: 1vh 0vw;
+    color: aliceblue; 
+}
+h3.data{
+    font-size: 3vh;
+}
+p.data{
+    font-size: 2.5vh;
+}
+a.search:link, a.search:visited, a.search:active {
+    text-decoration:none;
+    color:aliceblue;
+}
+input#favoriteIcon{
+    height: 5.5vh;  
 }
