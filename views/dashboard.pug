@@ -11,7 +11,7 @@ html
         include ./header.pug
         main   
             div(id="root")
-                h2  Ofertas actuales
+                h2  Current offers
                 div(id="offers")
                     each _offert in _offerts
                         div(class="eachOffer")
@@ -26,5 +26,5 @@ html
                                     //- button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
                                     //- button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
                 div 
-                    button(id="newOffer_Button" onClick="newOffert()") Crear nueva oferta
+                    button(id="newOffer_Button" onClick="newOffert()") Create new offer
     include ./footer.pug

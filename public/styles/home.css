@@ -9,6 +9,14 @@ div#busqueda {
     margin-top: 0vh;
     color:rgba(16, 0, 59, 0.952);
 }
+h2{
+    font-size: 4vh;
+    margin-bottom: -0.5vh;
+}
+img#loading{
+    height: 20vh;
+    margin-bottom: -4vh;
+}
 
 input#buscar{
     height: 3vh;

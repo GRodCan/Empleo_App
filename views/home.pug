@@ -11,17 +11,19 @@ html
         include ./header.pug
         main
             div(id= "root")
+                div(id="welcome")
+                    h2 Welcome, introduce your search.
                 div(id= "busqueda")
                     input(
                         name="search"
                         type="text"
-                        placeholder="Oferta"
+                        placeholder="Search offer"
                         id="buscar")
                     button(
                         type="submit"
                         value="home"
                         id="search_Button"
-                        onclick="search()") Buscar
+                        onclick="changeWelcome(), search()") Search
         include ./footer.pug
             //- Home de admin
             //- input(

@@ -1,6 +1,9 @@
 
-
+const changeWelcome=()=>{
+    document.getElementById("welcome").innerHTML= `<img id="loading" src="https://acegif.com/wp-content/uploads/loading-36.gif">`
+}
 const printSearch=async (dataArr)=>{
+    document.getElementById("welcome").innerHTML= `<h2>Good Luck!</h2>`
     if(document.getElementById("searchs")){
         document.getElementById("root").removeChild(document.getElementById("searchs"))
     }
