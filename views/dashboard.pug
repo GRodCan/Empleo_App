@@ -3,21 +3,29 @@ html
     head
         title= "DashBoard"
         style 
-            include ../public/styles/hamburguesa.css
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
             include ../public/styles/dashboard.css
+            include ../public/styles/favorites
         script( src="/scripts/dashboard.js")
     body
         include ./header.pug
         main   
-            div(id="root" class="eachOffer") 
-                each _offert in _offerts
-                    a(href="#")
+            div(id="root")
+                h2  Current offers
+                div(id="offers")
+                    each _offert in _offerts
                         div(class="eachOffer")
-                            h3 "titulo" #{_offert.title}
-                            p "salario" #{_offert.salary}
-                            p "empresa" #{_offert.company}
-                            button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
-                            button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
+                            a(href=_offert.url)
+                                div 
+                                    h3 #{_offert.title}
+                                    p Company: #{_offert.company}
+                                    p Salary: #{_offert.salary}
+                            div
+                                input(id="editIcon" class="icon" type="image" src="https://cdn-icons.flaticon.com/png/512/738/premium/738880.png?token=exp=1638811969~hmac=ba10581b466ec3c28424ed7d3a611329")
+                                input(id="deleteIcon" class="icon" type="image" src="https://cdn-icons.flaticon.com/png/512/5676/premium/5676146.png?token=exp=1638812084~hmac=639f0511621c82122e8c271342939227")
+                                    //- button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
+                                    //- button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
                 div 
-                    button(onClick="newOffert()") Crear nueva oferta
+                    button(id="newOffer_Button" onClick="newOffert()") Create new offer
     include ./footer.pug
