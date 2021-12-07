@@ -4,32 +4,31 @@ html
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         title= "Home"
         style 
-            include ../public/styles/hamburguesa.css
-            include ../public/styles/home.css 
-            include ../public/styles/favorites.css   
+ 
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
+            include ../public/styles/home.css    
         script(src="./scripts/home.js")
     body
         include ./header.pug
         main
             div(id= "root")
-                div
+                div(id="welcome")
+                    h2 Welcome, introduce your search.
+                div(id= "busqueda")
                     input(
                         name="search"
                         type="text"
-                        id="buscar"
-                        placeholder="Oferta")
+                        placeholder="Search offer"
+                        id="buscar")
                     button(
                         type="submit"
                         value="home"
                         id="search_Button"
-                        onclick="search()") Buscar
-                //- each _offert in data
-                //-     a(href= _offert.url)
-                //-         div
-                //-             h3 Titulo: #{_offert.title}
-                //-             p Salario: #{_offert.salary}
-                //-             p Empresa: #{_offert.company}
-                //-             
+
+                        onclick="changeWelcome(), search()") Search
+        include ./footer.pug
+
             //- Home de admin
             //- input(
             //-     type="submit"

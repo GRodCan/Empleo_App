@@ -1,6 +1,9 @@
 
-
+const changeWelcome=()=>{
+    document.getElementById("welcome").innerHTML= `<img id="loading" src="https://acegif.com/wp-content/uploads/loading-36.gif">`
+}
 const printSearch=async (dataArr)=>{
+    document.getElementById("welcome").innerHTML= `<h2>Good Luck!</h2>`
     if(document.getElementById("searchs")){
         document.getElementById("root").removeChild(document.getElementById("searchs"))
     }
@@ -10,19 +13,33 @@ const printSearch=async (dataArr)=>{
 
 
     for(let i in dataArr){
-            document.getElementById("searchs").innerHTML+=`
-            
-                <div>
-                <a href="${dataArr[i].url}"><div class="search">
-                <h3>Offert: ${dataArr[i].title}</h3>
-                <p>Company:${dataArr[i].company}</p>
-                <p>Salary:${dataArr[i].salary}</p>
-                </div>
-                <form id="sendTodatabase" action="/api/favorites" method="POST">
-                    <button id="favoriteIcon" onclick="createFavorites" type="submit"> <i class="fas fa-star"></i> </button>
-                </form>`
-        }
+
+            document.getElementById("searchs").innerHTML+=`<div class="offert">
+            <a href="${dataArr[i].url}" class="search"><div>
+            <h3 class="data">${dataArr[i].title}</h3>
+            <p class="data">Company: ${dataArr[i].company}</p>
+            <p class="data">Salary: ${dataArr[i].salary}</p>
+            </div>
+            </a>
+            <div id="buttonFav">
+            <input id="favoriteIcon" onclick="createFavorites" class="icon" type="image" src="https://cdn-icons.flaticon.com/png/512/2377/premium/2377810.png?token=exp=1638814242~hmac=9c4df675201d18bd309b5946f23e113d">
+            </div>            
+            </div>`
+    }
 }
+
+
+const search= async()=>{
+        let search= await document.getElementById("buscar").value;
+        if(!search){ 
+            search=await "full-stack"
+        };
+        const response = await fetch(`/api/search/${search}`);
+        const data = await response.json();
+       
+        await printSearch(data)
+}
+
 const createFavorite = async (offer) => {
     try {
         let url=
@@ -40,37 +57,3 @@ const createFavorite = async (offer) => {
     }
 }
 
-
-
-// document.getElementById("favoriteIcon").addEventListener("click",createFavorite)
-
-
-
-
-
-
-            // <input> 
-            // <i id="favoriteIcon" class="fas fa-star"></i>
-            // <input/>
-
-
-
-// const search_Button= document.getElementById("search_Button").addEventListener("click", async()=>{
-//     let search= await document.getElementById("buscar").value;
-//     if(!search){ 
-//         search=await "full-stack"
-//     };
-//     const response = await fetch(`/api/search/${search}`);
-//     const data = await response.json();
-   
-//     await printSearch(data)})
-
-const search= async()=>{
-        let search= await document.getElementById("buscar").value;
-        if(!search){ 
-            search=await "full-stack"
-        };
-        const response = await fetch(`/api/search/${search}`);
-        const data = await response.json();
-       
-        await printSearch(data)}
