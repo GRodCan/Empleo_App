@@ -10,12 +10,13 @@ html
         include ./header.pug
         div
             each _offert in _offerts
-                a(href=_offert.url)
+                a(href=_offert.url)   
                     div(class="eachOffer")                     
                         h3 Título: #{_offert.title}
-                        button(id="favoriteIcon") 
-                            i.fas.fa-star(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
                         p Salario: #{_offert.salary}
                         p Empresa: #{_offert.company}
+                    <form id="sendTodatabase" action="/api/favorites" method="POST">
+                        <button id="favoriteIcon" type="submit"> <i class="fas fa-star"></i> </button>
+                    </form>
                     
     include ./footer.pug

@@ -11,18 +11,44 @@ const printSearch=async (dataArr)=>{
 
     for(let i in dataArr){
             document.getElementById("searchs").innerHTML+=`
-            <div>
-            <form id="sendTodatabase" action="/favorites" method="POST">
-            <a href="${dataArr[i].url}"><div class="search">
-            <h3>Offert: ${dataArr[i].title}</h3>
-            <p>Company:${dataArr[i].company}</p>
-            <p>Salary:${dataArr[i].salary}</p>
-            </div>
-                <i id="favoriteIcon" type="submit" class="fas fa-star"></i>
-            </form>`
+            
+                <div>
+                <a href="${dataArr[i].url}"><div class="search">
+                <h3>Offert: ${dataArr[i].title}</h3>
+                <p>Company:${dataArr[i].company}</p>
+                <p>Salary:${dataArr[i].salary}</p>
+                </div>
+                <form id="sendTodatabase" action="/api/favorites" method="POST">
+                    <button id="favoriteIcon" onclick="createFavorites" type="submit"> <i class="fas fa-star"></i> </button>
+                </form>`
         }
 }
- 
+const createFavorite = async (offer) => {
+    try {
+        let url=
+        const data = await fetch('http://localhost:3000/',{
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify()
+        })
+        const res = await data.json()
+        return res
+    } catch (error) {
+        console.log(`ERROR: ${error.stack}`);
+    }
+}
+
+
+
+// document.getElementById("favoriteIcon").addEventListener("click",createFavorite)
+
+
+
+
+
+
             // <input> 
             // <i id="favoriteIcon" class="fas fa-star"></i>
             // <input/>
