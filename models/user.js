@@ -3,7 +3,7 @@ const pool = new Pool({
     user: "postgres",
     host: "localhost",
     database: "EmpleoApp",
-    password:process.env.DATABASE_SQLPASS
+    password: process.env.DATABASE_SQLPASS
 });
 const createUser = async(nombre, email, pass, img, administrador=false) => {
     console.log("Esto es lo que llega", nombre, email, pass, img);
@@ -64,11 +64,14 @@ const editUserByEmail = async(propiedad, newValue, email, oldPass) => {
 const existUser = async(email, pass) => {
     try {
         client = await pool.connect();
-        const data = await client.query(`SELECT
-                                        email
+
+        const data = await client.query(`SELECT 
+                                        email,
+                                        pass
                                         FROM users
                                         WHERE email = $1 AND pass = $2`,[email, pass])
-        result = data.rowCount
+        result = data.rows[0]
+        
     }catch(err){
         console.log(err);
         throw err;
