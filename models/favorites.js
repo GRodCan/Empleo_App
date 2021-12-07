@@ -7,23 +7,25 @@ const pool = new Pool({
 });
 
 const getFavorites = async() => {
+    let client;
+    let result;
     try{
-        const client = await pool.connect();
+        client = await pool.connect();
         const data = await client.query(`SELECT * FROM favorites`)
-        const result = data.rows
+        result = data.rows
     }catch(err){
         console.log(err);
         throw err;
     }finally{
         client.release();
     }
-    console.log(result)
+    
     return result
 }
 
-const createFavorite = async(title, company, salary, url, id_user=1) => {
+const createFavorite = async(url, title, salary, company, id_user=1) => {
     let result;
-    console.log(title);
+    
     let client;
     try {
         client = await pool.connect(); // Espera a abrir conexio
