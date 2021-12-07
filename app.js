@@ -1,7 +1,7 @@
 const express = require('express');
-require('dotenv').config()
+require('dotenv').config();
 const viewsRouter=require('./routes/views');
-const cors = require("cors")
+const cors = require("cors");
 const apiSqlRouter=require('./routes/apiSQL');
 const apiMongoRouter = require('./routes/apiMongo')
 

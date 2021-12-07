@@ -1,8 +1,10 @@
 doctype html
 html
     head
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         title= "Home"
         style 
+ 
             include ../public/styles/normalize.css
             include ../public/styles/general.css
             include ../public/styles/home.css    
@@ -23,13 +25,14 @@ html
                         type="submit"
                         value="home"
                         id="search_Button"
+
                         onclick="changeWelcome(), search()") Search
         include ./footer.pug
+
             //- Home de admin
             //- input(
             //-     type="submit"
             //-     value="Usuarios")
-
             //- input(
             //-     type="submit"
             //-     value="Ofertas")

@@ -3,8 +3,8 @@ CREATE TABLE users
  nombre VARCHAR(50) NOT NULL,
  email VARCHAR(255) UNIQUE NOT NULL,
  pass VARCHAR(12) NOT NULL,
- img VARCHAR(255)
- fecha DATE not null default CURRENT_DATE
+ img VARCHAR(255),
+ fecha DATE not null default CURRENT_DATE,
  administrador BOOLEAN NOT NULL
 );
 
@@ -21,3 +21,6 @@ url VARCHAR(255)
 );
 
 SELECT * FROM favorites
+
+
+

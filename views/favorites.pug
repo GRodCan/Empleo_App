@@ -9,15 +9,15 @@ html
             include ../public/styles/favorites.css
     body
         include ./header.pug
-        main
-            div(id= "root")
-                each _offert in _offerts
-                    a(href=_offert.url)
+         main
+              div(id= "root")
+                  each _offert in _offerts
+                    a(href=_offert.url)   
                         div(class="eachOffer")                     
                             h3 Título: #{_offert.title}
-                            button(id="favoriteIcon") 
-                                i.fas.fa-star(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
                             p Salario: #{_offert.salary}
                             p Empresa: #{_offert.company}
-                    
-    include ./footer.pug
+                            button(id="favoriteIcon") 
+                                i.fas.fa-star(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+
+         include ./footer.pug
