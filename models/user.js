@@ -69,10 +69,11 @@ const existUser = async(email, pass) => {
     try {
         client = await pool.connect();
         const data = await client.query(`SELECT 
-                                        email
+                                        email,
+                                        pass
                                         FROM users
                                         WHERE email = $1 AND pass = $2`,[email, pass])
-        result = data.rowCount
+        result = data.rows[0]
         
     }catch(err){
         console.log(err);
@@ -91,7 +92,7 @@ const users = {
 }
 
 module.exports = users;
-getUserByEmail("batman@test.com")
+// getUserByEmail("batman@test.com")
 //Pruebas
 
 // let newUser = {nombre:"Julio Ruiz Mateos", email:"quetepegoleches@ciber.com", pass:"superman", administrador:false};

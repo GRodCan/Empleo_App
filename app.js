@@ -7,7 +7,7 @@ const cors = require("cors");
 const apiSqlRouter=require('./routes/apiSQL');
 const apiMongoRouter = require('./routes/apiMongo');
 
-const authPass = require('./utils/passport')
+// require('./utils/passport')
 
 const app = express();
 const port = 3000;
@@ -25,12 +25,6 @@ app.use("/", viewsRouter);
 app.set('view engine', 'pug');
 app.set('views','./views');
 app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-  res.json({
-      message: "Node Cookie JWT Service"
-  })
-})
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
