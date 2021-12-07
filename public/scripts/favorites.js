@@ -16,4 +16,4 @@ const createFavorite = async (offer) => {
 
 
 
-document.getElementById("favoriteIcon").addEventListener("click",createFavorite)
+
