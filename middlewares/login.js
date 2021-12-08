@@ -5,6 +5,7 @@ const login = async(req, res, next) => {
         const{email, pass} = req.body
         const user = await User.existUser(email, pass)
         if(user){
+            console.log("Esto es user", user)
             req.user = user
             next()   
         }else{
