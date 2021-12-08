@@ -6,7 +6,7 @@ const objectSchema = {
         required: true
     },
     salary: {
-        type: Number,
+        type: String,
         required: true
     },
     company:{

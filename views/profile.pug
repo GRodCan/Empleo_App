@@ -13,10 +13,10 @@ html
             div(id="root" class="containerdiv") 
                 h2= "Your profile"
                     div 
-                        img(src='#{users.avatar}' alt="user avatar")
-                        p Nombre: #{users.name}
-                        p Email: #{users.email}
-                        p Miembro desde: #{users.dateUp}
+                        img(src=user.img alt="user avatar")
+                        p Nombre: #{user.nombre}
+                        p Email: #{user.email}
+                        p Miembro desde: #{user.fecha}
                 button(class="send" onclick="editMode()")= "Editar"
 
 

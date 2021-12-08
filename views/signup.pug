@@ -9,7 +9,36 @@ html
     body
         include ./header.pug
         main
-            div(id="root" class="containerdiv")
+            div(id="root")
+                h2  Sign Up 
+                form(
+                    action="/api/user"
+                    method="POST")
+                    div(id="userData")                        
+                            input(
+                                type="text"
+                                placeholder="Nombre de usuario"
+                                name="nombre"
+                                class="userData")                        
+                            input(
+                                type="email"
+                                placeholder="Email"
+                                name="email"
+                                class="userData")                            
+                            input(
+                                type="password"
+                                placeholder="Contraseña"
+                                name="pass"
+                                class="userData")                            
+                            input(
+                                type="text"
+                                placeholder="URL de la imagen"
+                                name="img"
+                                class="userData")
+                            div(id="signup_Button")
+                                button(
+                                type="submit"
+                            ) Registrar
                 div(class="redes")
                     input(
                         type="submit"
@@ -19,34 +48,6 @@ html
                         type="submit"
                         value="Continuar con Google"
                         id="google")
-                    div(class="userdata")
-                        form(
-                            action="/api/user"
-                            method="POST")
-                            div(class="data")
-                            input(
-                                type="text"
-                                placeholder="Nombre de usuario"
-                                name="nombre")
-                            div(class="data")
-                            input(
-                                type="email"
-                                placeholder="Email"
-                                name="email")
-                            div(class="data")
-                            input(
-                                type="password"
-                                placeholder="Contraseña"
-                                name="pass")
-                            div(class="data")
-                            input(
-                                type="text"
-                                placeholder="URL de la imagen"
-                                name="img")
-                            div(class="data")
-                            button(
-                                type="submit"
-                            ) Registrar
 
         include ./footer.pug
 

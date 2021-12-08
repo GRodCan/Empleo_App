@@ -19,8 +19,9 @@ const offerts={
 
     createOffert: async (req,res)=>{
         try{
+            console.log(req.body);
             const offert = await new Offert(req.body); //genera nuevo documento con la info recibida del req
-            mongoDB.getAllOfferts(offert)
+            await mongoDB.createOffert(offert)
             res.status(201).redirect("/dashboard");
         }catch(err){
             res.status(400).json({"error":err})
@@ -28,9 +29,11 @@ const offerts={
     },
     deleteOffert: async (req,res)=>{
         try{
+            console.log("controller");
             const query=req.body
             const data= await mongoDB.deleteOffert(query)
-            res.status(200).json(data);;
+            console.log("vuelve de borrar");
+            res.status(200).json(data);
         }catch(err){
             res.status(400).json({"error":err})
         }
@@ -44,8 +47,14 @@ const offerts={
     */
     editOffert: async (req,res)=>{
         try{
-            const result= await mongoDB.editOffert(req.body.title,req.body.update);
-            res.status(200).json(result);
+            let title= req.body.oldTitle
+            let update={
+                "title": req.body.title,
+                "company": req.body.company,
+                "salary": req.body.salary
+            }
+            await mongoDB.editOffert(title,update);
+            res.status(200).redirect("/dashboard");
         }catch(err){
             res.status(400).json({"error":err})
         }

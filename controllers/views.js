@@ -18,16 +18,38 @@ const views ={
         const offerts = await offertSQL.getFavorites()
         res.status(200).render('favorites', {_offerts:offerts})
       },
-    profile: (req, res) => {
-        res.status(200).render('profile', {users: falsoUsuario})
+    profile: async(req, res) => {
+        const email = await req.user.email
+        const user = await usersSQL.getUserByEmail(email)
+        console.log(user)
+        res.status(200).render('profile', {user: user[0]})
       },
     users: async (req, res) => {
-      const users = await usersSQL.getUserByEmail()
+      const email = await req.user.email
+      const user = await usersSQL.getUserByEmail(email)
+      try{
+      if(user[0].administrador == true){
+        const users = await usersSQL.getUserByEmail()
         res.status(200).render('users', {users: users})
+      }else{
+        console.log("Error")
+      }}catch(error){
+        throw error
+      }
       },
     dashboard: async (req, res) => {
+      const email = await req.user.email
+      const user = await usersSQL.getUserByEmail(email)
+      try{
+      if(user[0].administrador == true){
         const offerts= await apiMongo.getOfferts()
         res.status(200).render('dashboard', {_offerts:offerts})
+      }else{
+        console.log("Error")
+      }}catch(error){
+        throw error
+      }
+
       }
 };
 module.exports=views

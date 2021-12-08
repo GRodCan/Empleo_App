@@ -94,6 +94,14 @@ li:hover {
     color:rgba(16, 0, 59, 0.952);
     background-color:  rgb(255, 255, 255);
 }
+.logout {
+    padding-left: 0px;
+    margin-top: 0px;
+    font-size: 50px;
+    border: none;
+    background-color: transparent;
+    display: block;
+}
 .title{
     padding: 0vw 17vw;
     margin-left: -6vw;
