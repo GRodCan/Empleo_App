@@ -96,8 +96,11 @@ li:hover {
 }
 .logout {
     padding-left: 0px;
+    margin-top: 0px;
+    font-size: 50px;
     border: none;
     background-color: transparent;
+    display: block;
 }
 .title{
     padding: 0vw 17vw;
