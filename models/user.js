@@ -40,7 +40,6 @@ const getUserByEmail = async(email) => {
     }finally{
         client.release();
     }
-    console.log(result);
     return result
 }
 const editUserByEmail = async(propiedad, newValue, email, oldPass) => {
