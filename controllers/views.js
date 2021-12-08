@@ -15,7 +15,9 @@ const views ={
         res.status(200).render('login')
       },
     favorites: async(req, res) => {
-        const offerts = await offertSQL.getFavorites()
+        const email = await req.user.email
+        const user = await usersSQL.getUserByEmail(email)
+        const offerts = await offertSQL.getFavorites(user[0].id_user)
         res.status(200).render('favorites', {_offerts:offerts})
       },
     profile: async(req, res) => {
