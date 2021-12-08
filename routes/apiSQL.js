@@ -70,6 +70,6 @@ routes.get('/protected',
 
 routes.post('/favorites', favorites.createFavorite);
 
-routes.delete('/favorites', (req,res)=>res.send("Borrar favorito"));
+routes.delete('/favorites', favorites.deleteFavorite);
 
 module.exports = routes;

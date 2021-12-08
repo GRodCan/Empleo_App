@@ -53,7 +53,7 @@ const createFavorite = async (index) => {
             salary: document.getElementById(`salary${index}`).innerText,
 
         }; 
-        console.log(offerData);    
+         
         const data = await fetch('http://localhost:3000/api/favorites',{
             method:"POST",
             headers: {
@@ -61,9 +61,9 @@ const createFavorite = async (index) => {
             },
             body:JSON.stringify(offerData)
         })
-        console.log(data);
+      
         const res = await data.json()
-        console.log(res);
+        
         return res
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);

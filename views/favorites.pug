@@ -7,17 +7,20 @@ html
             include ../public/styles/normalize.css
             include ../public/styles/general.css
             include ../public/styles/favorites.css
+        script(src="./scripts/favorites.js")
     body
         include ./header.pug
          main
               div(id= "root")
-                  each _offert in _offerts
-                    a(href=_offert.url)   
-                        div(class="eachOffer")                     
-                            h3 Título: #{_offert.title}
-                            p Salario: #{_offert.salary}
-                            p Empresa: #{_offert.company}
-                            button(id="favoriteIcon") 
+                  each _offert,index in _offerts           
+                        div(class="eachOffer") 
+                            a(id=("url"+index) href=_offert.url)                    
+                                h3(id=("title"+index)) #{_offert.title}
+                                p(id=("salary"+index)) #{_offert.salary}
+                                p(id=("company"+index)) #{_offert.company}
+                            button(
+                                id="favoriteIcon"
+                                onclick=("deleteFavorite("+index+")"))
                                 i.fas.fa-star(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
 
-         include ./footer.pug
+        include ./footer.pug
