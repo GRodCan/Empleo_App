@@ -26,7 +26,7 @@ const getUserByEmail = async(email) => {
     try{
         client = await pool.connect();
         if(email){
-        const data = await client.query(`SELECT u.nombre, u.email, u.administrador
+        const data = await client.query(`SELECT u.nombre, u.email, u.img, u.fecha
                                         FROM users AS u
                                         WHERE u.email=$1`, [email])
         result = data.rows
@@ -83,7 +83,7 @@ const users = {
     createUser,
     getUserByEmail,
     editUserByEmail,
-    existUser,
+    existUser
 }
 module.exports = users;
 // getUserByEmail("batman@test.com")
