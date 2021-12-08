@@ -4,7 +4,7 @@ const createFavorite = async (req,res)=>{
     let result;
     try{
         result = await favorite.createFavorite(req.body.url, req.body.title, req.body.salary, req.body.company) //req.body.id_user          
-        console.log(req.body.url)
+        console.log(req.body)
         
         res.status(201).json({});
     }catch(err){

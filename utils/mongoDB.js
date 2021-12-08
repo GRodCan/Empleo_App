@@ -11,10 +11,17 @@ const db = client.db("EmpleoApp")
 const col= db.collection("Offerts")
 
 
-const getOfferts=async (query)=>{
-    await col.createIndex( { title: "text" } )
+const getOfferts=async (query,mongo)=>{
+
     let filter={}
-    if(query){filter={$text:{$search:query}}}
+    if(query) {
+    if(mongo=="true"){
+        filter={
+            "title": query,
+        }
+    }else{
+        await col.createIndex({ title: "text" })
+        filter={$text:{$search:query}}}}
      const cursor = await col.find(filter);
      const data= await cursor.toArray();
      console.log("Ofertas mongo adquiridas", data.length);
@@ -35,9 +42,9 @@ const editOffert=async (title,update)=>{
     const filter={title: title}
     const updateDocument={
         $set:update            
-    }
-    await collection.updateOne(filter,updateDocument); //busca por titulo y aplica cambios en los cambios especificados en el req.body.update
-            console.log("Offert update!");
+    };
+    await col.updateOne(filter,updateDocument); //busca por titulo y aplica cambios en los cambios especificados en el req.body.update
+    console.log("Offert update!");
 }
 
 const methods={

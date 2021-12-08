@@ -6,26 +6,26 @@ html
             include ../public/styles/normalize.css
             include ../public/styles/general.css
             include ../public/styles/dashboard.css
-            include ../public/styles/favorites
-        script( src="/scripts/dashboard.js")
+            
     body
         include ./header.pug
         main   
             div(id="root")
                 h2  Current offers
                 div(id="offers")
-                    each _offert in _offerts
+                    each _offert, index in _offerts
                         div(class="eachOffer")
-                            a(href=_offert.url)
+                            a(href=_offert.url id=("url"+index))
                                 div 
-                                    h3 #{_offert.title}
-                                    p Company: #{_offert.company}
-                                    p Salary: #{_offert.salary}
+                                    h3(id=("title"+index)) #{_offert.title}
+                                    p(id=("company"+index)) #{_offert.company}
+                                    p(id=("salary"+index)) #{_offert.salary}
                             div
-                                input(id="editIcon" class="icon" type="image" src="https://cdn-icons.flaticon.com/png/512/738/premium/738880.png?token=exp=1638811969~hmac=ba10581b466ec3c28424ed7d3a611329")
-                                input(id="deleteIcon" class="icon" type="image" src="https://cdn-icons.flaticon.com/png/512/5676/premium/5676146.png?token=exp=1638812084~hmac=639f0511621c82122e8c271342939227")
+                                input(id=("editIcon"+index) class="icon" type="image" src="https://www.pngfind.com/pngs/m/77-776933_computer-icons-pencil-editing-download-icon-design-edit.png" onclick=("getOffertToEdit("+index+")"))
+                                input(id=("deleteIcon"+index)  class="icon" type="image" src="https://library.kissclipart.com/20190905/yuq/kissclipart-can-icon-delete-icon-remove-icon-db41fa2db93fe7e0.png")
                                     //- button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
                                     //- button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
                 div 
                     button(id="newOffer_Button" onClick="newOffert()") Create new offer
-    include ./footer.pug
+        include ./footer.pug
+        script( src="/scripts/dashboard.js")
