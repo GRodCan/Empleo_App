@@ -39,6 +39,11 @@ routes.post('/login', login, async(req,res)=>{
             httpOnly:true,
             secure: false //Set to true in production
         })
+    .cookie('email',
+        payload.email,{
+            httpOnly:true,
+            secure: false
+        })
     .status(200)
     .redirect(
         '/profile'
