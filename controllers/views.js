@@ -21,7 +21,7 @@ const views ={
     profile: async(req, res) => {
         const email = await req.user.email
         const user = await usersSQL.getUserByEmail(email)
-        console.log(user)
+        console.log(user[0])
         res.status(200).render('profile', {user: user[0]})
       },
     users: async (req, res) => {
