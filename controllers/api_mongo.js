@@ -6,10 +6,6 @@ const offerts={
     getAllOfferts: async (req,res)=>{
         try{
             console.log(req.params.search);
-            if(req.params.mongo=="true"){
-            const data_mongo= await mongoDB.getOfferts(req.params.search, req.params.mongo);
-                return res.status(200).json(data_mongo)
-            }
             const data_mongo= await mongoDB.getOfferts(req.params.search);
             const scrap_D= await scrap_Domestika(req.params.search)
             const scrap_W= await scrap_Workana(req.params.search)
@@ -23,8 +19,9 @@ const offerts={
 
     createOffert: async (req,res)=>{
         try{
+            console.log(req.body);
             const offert = await new Offert(req.body); //genera nuevo documento con la info recibida del req
-            mongoDB.createOffert(offert)
+            await mongoDB.createOffert(offert)
             res.status(201).redirect("/dashboard");
         }catch(err){
             res.status(400).json({"error":err})
@@ -32,9 +29,11 @@ const offerts={
     },
     deleteOffert: async (req,res)=>{
         try{
+            console.log("controller");
             const query=req.body
             const data= await mongoDB.deleteOffert(query)
-            res.status(200).json(data);;
+            console.log("vuelve de borrar");
+            res.status(200).json(data);
         }catch(err){
             res.status(400).json({"error":err})
         }

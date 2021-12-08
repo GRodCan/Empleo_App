@@ -22,7 +22,7 @@ const printSearch=async (dataArr)=>{
             </div>
             </a>
             <div id="buttonFav">
-            <input id="favoriteIcon"  onclick="createFavorite(${i})" class="icon" type="image" src="https://i.pinimg.com/originals/c4/8b/b4/c48bb482142fb97698955bc21c1bf82c.png">
+            <input id="favoriteIcon"  onclick="createFavorite(${i})" class="icon" type="image" src="./assets/icons/favourite.png">
             </div>            
             </div>`
     }

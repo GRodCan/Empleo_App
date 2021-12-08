@@ -5,7 +5,7 @@ const newOffert=(data)=>{
     <form action="/api/ads" method="POST">
     <input type="text" name="title" id="form_title" placeholder="Titulo oferta" value="" class="form_input">
     <input type="text" name="company" id="form_company" placeholder="Compañia" value="" class="form_input">
-    <input type="number" name="salary" id="form_salary" placeholder="Salario" value="" class="form_input">
+    <input type="text" name="salary" id="form_salary" placeholder="Salario" value="" class="form_input">
     <input type="url" name="url" id="form_url" placeholder="Url Oferta" value="" class="form_input">
     <button type="submit" id="createOffer_Button" value="">Create new offer</button>
     </form>
@@ -13,7 +13,7 @@ const newOffert=(data)=>{
     }
     else{
     document.getElementById("root").innerHTML=`
-    <h2>New Offer</h2>
+    <h2>Edit Offer</h2>
     <form action="" method="">
     <input type="text" name="title" id="form_title" placeholder="Titulo oferta" value="${data.title}" class="form_input">
     <input type="text" name="company" id="form_company" placeholder="Compañia" value="${data.company}" class="form_input">
@@ -44,7 +44,6 @@ const editOffert= async ()=>{
             salary: document.getElementById(`form_salary`).value,
             oldTitle: document.getElementById("createOffer_Button").value
         };
-        console.log(dataOffert)
     const data = await fetch('http://localhost:3000/api/ads',{
             method:"PUT",
             headers: {
@@ -57,4 +56,28 @@ const editOffert= async ()=>{
     }catch(err){ 
         throw err
     }
+}
+
+const deleteOffert=async (i)=>{
+    try{
+        let dataOffert={
+            url: document.getElementById(`url${i}`).href,
+            title: document.getElementById(`title${i}`).innerText,
+            company: document.getElementById(`company${i}`).innerText,
+            salary: document.getElementById(`salary${i}`).innerText
+        };
+        console.log("prefetch");
+        const data = await fetch('http://localhost:3000/api/ads',{
+            method:"DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(dataOffert)
+        })
+        const res = await data
+        console.log(res)
+
+    }catch(err){
+        throw err}
+
 }
