@@ -34,7 +34,9 @@ const createOffert=async(offert)=>{
 }
 
 const deleteOffert=async (query)=>{
-    await col.deleteOne(query); //lo guarda en BBDD
+    console.log("utils");
+    console.log(query)
+    await col.deleteOne(query); //lo borra de BBDD
     console.log("Offert delete!")
 }
 
