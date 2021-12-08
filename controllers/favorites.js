@@ -10,31 +10,22 @@ const createFavorite = async (req,res)=>{
     }catch(err){
         res.status(400).json({"error":err});
     }
-    //finally{
-    //     client.release();    
-    // }
 }
 
-    // "url": "https://http.cat/405",
-    // "title": "ofertavaorita1",
-    // "salary": "21000",
-    // "company": "indra",
-    // "description": "blablabla"
+const deleteFavorite = async (req,res)=>{
+    let result;
+    try{
+        result = await favorite.deleteFavorite(req.body.title,)
 
-//     deleteFavorite: async (req,res)=>{
-//          try{
-//              client=await pool.connect()
-//              const data= await client.query(`)`
-//              res.status(200).json(data);
-//              console.log("Offert delete!");
-//              }catch(err){
-//                  res.status(400).json({"error":err})
-//          }
-//      },
-// }
+        res.status(201).json({});
+    }catch(err){
+        res.status(400).json({"error":err});
+    }
+}
 
 const favorites = {
-    createFavorite
+    createFavorite,
+    deleteFavorite
 }
 
 module.exports = favorites;
