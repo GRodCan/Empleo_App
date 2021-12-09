@@ -6,6 +6,10 @@
     align-content: center;
 }
 
+#users{
+    overflow-y: scroll;
+}
+
 .eachUser {
     background-color: rgba(211, 220, 228, 0.39);;
     margin-top: 1rem;
@@ -14,6 +18,20 @@
     border-radius: 5px;
 }
 
+.ficha{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ficha p{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+}
 
 h3 {
     text-align: center;
@@ -22,6 +40,7 @@ h3 {
     font-size: 2rem;
     color: rgba(16, 0, 59, 0.952);
 }
+
 p {
     font-family: 'Oswald', sans-serif;
     margin:1rem;
@@ -29,30 +48,30 @@ p {
     font-size: 1rem;  
     color: rgba(34, 34, 34, 0.993);
 }
-.button {
+.avatar{
+    width: 40%;
+    border-radius: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button{
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
-    border-style: solid;
-    border-color: rgba(16, 0, 59, 0.952);
-    border-radius: 4px;
-    margin: 0.5rem;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: #3374ffa6;
+    box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
+    font-size: 3vh;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
 }
 .button:hover {
     background-color: rgba(26, 0, 59, 0.952);
     color: white;
 }
-.createButton {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
-    border-style: solid;
-    border-color: rgba(16, 0, 59, 0.952);
-    border-radius: 4px;
-    margin: 0.5rem;
-}
-button.createButton {
-    align-self: center;
-}
-.createButton:hover {
-    background-color: rgba(26, 0, 59, 0.952);
-    color: white;
+
+.create{
+    margin-bottom: 1rem;
 }

@@ -27,7 +27,7 @@ header{
     position:sticky;
     top: 0vh;
     display: flex;    
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center; 
     width: 100vw;
     height: 9.5vh;
@@ -101,15 +101,18 @@ li:hover {
     border: none;
     background-color: transparent;
     display: block;
+    color: rgb(14, 0, 51);
 }
-.title{
+/* .title{
     padding: 0vw 17vw;
     margin-left: -6vw;
-}
- h1{
+} */
+h1{
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5vh;
+    font-size: 5rem;
     color: white;
+    margin-right: auto;
+    margin-left: 10rem;
  }
 
 /*      MAIN      */

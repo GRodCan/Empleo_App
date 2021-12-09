@@ -14,18 +14,18 @@ html
         main
             div(id= "root")
                 div(id="welcome")
-                    h2 Welcome, introduce your search.
+                    h2 Bienvenido, introduce tu búsqueda:
                 div(id= "busqueda")
                     input(
                         name="search"
                         type="text"
-                        placeholder="Search offer"
+                        placeholder="Buscar oferta"
                         id="buscar")
                     button(
                         type="submit"
                         value="home"
                         id="search_Button"
-                        onclick="changeWelcome(), search()") Search
+                        onclick="changeWelcome(), search()") Buscar
         include ./footer.pug
 
             //- Home de admin
