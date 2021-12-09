@@ -12,6 +12,7 @@ html
         include ./header.pug
          main
             div(id= "root")
+                h2 Ofertas favoritas
                 each _offert,index in _offerts           
                     div(class="eachOffer") 
                         a(id=("url"+index) href=_offert.url)                    

@@ -8,10 +8,13 @@ div#busqueda {
     row-gap: 1vh;
     margin-top: 0vh;
     color:rgba(16, 0, 59, 0.952);
+    width: 100%;
 }
-h2{
-    font-size: 4vh;
-    margin-bottom: -0.5vh;
+h2 {
+    margin:1vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(16, 0, 59, 0.952);
 }
 img#loading{
     height: 20vh;
@@ -19,15 +22,13 @@ img#loading{
 }
 
 input#buscar{
-    height: 3vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
     border-style: solid;
     border-color: rgba(16, 0, 59, 0.952);
-    border-radius: 0.5vh;
-    border-width: 0.2vh;
+    border-radius: 7px;
     background-color: rgba(255, 255, 255, 0.25);
-    font-size: 2vh;
-    font-family: 'Montserrat', sans-serif;
-    text-indent: 1vh;
+    width: 80%;
 }
 button{
     font-family: 'Montserrat', sans-serif;
@@ -37,6 +38,9 @@ button{
     box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
     font-size: 3vh;
     width: 35vw;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 div#searchs{
     display: flex;
@@ -45,6 +49,8 @@ div#searchs{
 }
 
 div.offert{
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(16, 0, 59, 0.952);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,3 +80,4 @@ a.search:link, a.search:visited, a.search:active {
 input#favoriteIcon{
     height: 5.5vh;  
 }
+

@@ -4,7 +4,7 @@
 h2 {
     margin:1vh;
     font-family: 'Montserrat', sans-serif;
-    font-size: 4vh;
+    font-size: 3.5rem;
     color: rgba(16, 0, 59, 0.952);
 }
 div#offers{
@@ -18,17 +18,22 @@ div#offers{
     border-radius: 1vh;
     margin: 0.5vh 2vw;
     opacity: 1;
-    width: 80vw;
     height: 70vh;
     background-color: #3374ffa6;
     box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(255,255,255,0);
 }
+
+h3{
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(16, 0, 59, 0.952);
+}
+
 p {
     font-family: 'Oswald', sans-serif;
     margin:1rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;  
-    color: rgba(34, 34, 34, 0.993);
+    color: rgba(16, 0, 59, 0.952);
 }
 div.eachOffer{
     display: flex;

@@ -11,12 +11,12 @@ html
         include ./header.pug
         main
             div(id="root" class="containerdiv") 
-                h2= "Your profile"
-                    div 
-                        img(src=user.img , alt="Avatar User")
-                        p Nombre: #{user.nombre}
-                        p Email: #{user.email}
-                        p Miembro desde: #{user.fecha}
+                h2 Perfil de usuario
+                div(class="perfil") 
+                    img(src=user.img , alt="Avatar User" class="avatar")
+                    p #[strong Nombre:] #{user.nombre}
+                    p #[strong Email:] #{user.email}
+                    p #[strong Fecha de alta:] #{user.fecha.toString().substring(0,15)}
                 button(class="send" onclick="editMode()")= "Editar"
 
 

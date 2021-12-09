@@ -10,10 +10,11 @@ html
         include ./header.pug
         main
             div(id="root")
-                h2  Sign Up 
+                h2  Registro
                 form(
                     action="/api/user"
-                    method="POST")
+                    method="POST"
+                    class="signup")
                     div(id="userData")                        
                             input(
                                 type="text"
@@ -35,19 +36,18 @@ html
                                 placeholder="URL de la imagen"
                                 name="img"
                                 class="userData")
-                            div(id="signup_Button")
-                                button(
-                                type="submit"
+                            button(
+                            type="submit"
                             ) Registrar
-                div(class="redes")
-                    input(
-                        type="submit"
-                        value="Continuar con Facebook"
-                        id="facebook")
-                    input(
-                        type="submit"
-                        value="Continuar con Google"
-                        id="google")
+                //- div(class="redes")
+                    //- input(
+                    //-     type="submit"
+                    //-     value="Continuar con Facebook"
+                    //-     id="facebook")
+                    //- input(
+                    //-     type="submit"
+                    //-     value="Continuar con Google"
+                    //-     id="google")
 
         include ./footer.pug
 

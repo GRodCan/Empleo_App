@@ -12,8 +12,8 @@ header
                 )  
                     a(href="/", ): li  Inicio 
                     if !log.loggedIn
-                        a(href="/signup"): li Registrarse 
-                        a(href="/login"): li Ingresar
+                        a(href="/signup"): li Registro de usuario
+                        a(href="/login"): li Login
                     if log.loggedIn
                         a(href="/favorites"): li Ofertas favoritas 
                         a(href="/profile"): li Perfil de usuario 
@@ -25,5 +25,5 @@ header
                         a(href="/"): li 
                             form(action="/api/logout" method="POST" class="logout")
                                 input(type="submit" value="Logout" class="logout")
-    div(class="title") 
-        h1 "Esto es el titulo de la app"    
+    //- div(class="title") 
+    h1 EmpleApp   

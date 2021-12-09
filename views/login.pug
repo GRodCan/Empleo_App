@@ -11,11 +11,10 @@ html
         main
             div(id= "root")
                 h2= "Login" 
-                form(action="/api/login" method="POST")
+                form(action="/api/login" method="POST" class="login")
                     div(class="containerdiv")
-                        div(class="data")
                         input(type="email" placeholder="Email" name="email")
-                        input(type="password" placeholder="Password" name="pass")
+                        input(type="password" placeholder="Contraseña" name="pass")
                         div(class="send")
                         button(class="send" type="submit") Ingresar
         include ./footer.pug
