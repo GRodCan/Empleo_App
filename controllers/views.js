@@ -52,6 +52,11 @@ const views ={
         throw error
       }
 
+      },
+      accessError: (req, res) => {
+        res.status(401).render('errors')
       }
+
+
 };
 module.exports=views
