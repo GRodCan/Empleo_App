@@ -11,16 +11,16 @@ html
     body
         include ./header.pug
          main
-              div(id= "root")
-                  each _offert,index in _offerts           
-                        div(class="eachOffer") 
-                            a(id=("url"+index) href=_offert.url)                    
-                                h3(id=("title"+index)) #{_offert.title}
-                                p(id=("salary"+index)) #{_offert.salary}
-                                p(id=("company"+index)) #{_offert.company}
-                            button(
-                                id="favoriteIcon"
-                                onclick=("deleteFavorite("+index+")"))
+            div(id= "root")
+                each _offert,index in _offerts           
+                    div(class="eachOffer") 
+                        a(id=("url"+index) href=_offert.url)                    
+                            h3(id=("title"+index)) #{_offert.title}
+                            p(id=("salary"+index)) #{_offert.salary}
+                            p(id=("company"+index)) #{_offert.company}
+                        button(
+                            id="favoriteIcon"
+                            onclick=("deleteFavorite("+index+")"))
                                 i.fas.fa-star(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
 
         include ./footer.pug
