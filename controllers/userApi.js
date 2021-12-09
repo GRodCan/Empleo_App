@@ -15,7 +15,7 @@ const createUser = async(req, res) => {
     try{
         const result = await User.createUser(req.body.nombre, req.body.email, req.body.pass, req.body.img);
         console.log('Usuario creado');
-        res.redirect('http://localhost:3000/profile');
+        res.redirect('http://localhost:3000/login');
     }catch(err){
         res.status(400).json({"error":err});
     }
