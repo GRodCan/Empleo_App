@@ -1,3 +1,7 @@
+const jwt = require('jsonwebtoken');
+const expirationTimeInMs = process.env.JWT_EXPIRATION_TIME
+const secret = process.env.JWT_SECRET
+
 const generateToken=async(req,res)=>{
     let user
     if(req.user){

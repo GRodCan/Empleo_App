@@ -4,7 +4,7 @@ const pool = new Pool({
     user: "postgres",
     host: "localhost",
     database: "EmpleoApp",
-    password: "1234"
+    password: process.env.DATABASE_SQLPASS
 });
 const createUser = async(nombre, email, pass, img, administrador=false) => {
     console.log("Esto es lo que llega", nombre, email, pass, img);
