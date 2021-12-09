@@ -4,6 +4,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const login = require('../middlewares/login')
 const favorites = require('../controllers/favorites.js')
+const generateToken=require('../utils/generateToken')
 
 const passportJWTauth = require('../utils/passport')
 passportJWTauth(passport)
@@ -17,34 +18,7 @@ routes.post('/user/edit', api_sql.editUserByEmail);
 
 routes.delete('/user', (req,res)=>res.send("Borrar un usuario de la base de datos (admin)"));
 
-routes.post('/login', login, async(req,res)=>{
-    let user
-    if(req.user){
-        user = req.user
-    }else{
-        res.status(400).json({
-            error: 'User not found'
-        })
-    }
-    const payload = {
-        email: user.email,
-        pass: user.pass
-    }
-    console.log("esto es payload", payload)
-    const token = jwt.sign(payload, secret, {expiresIn: '1d'})
-    console.log("Esto es token", token)
-    res
-    .cookie('jwt',
-        token,{
-            httpOnly:true,
-            secure: false //Set to true in production
-        })
-    .status(200)
-    .redirect(
-        '/profile'
-    )
-    console.log('login correcto')
-});
+routes.post('/login', login, generateToken)
 
 routes.post('/logout', (req, res) => {
     if (req.cookies['jwt']) {

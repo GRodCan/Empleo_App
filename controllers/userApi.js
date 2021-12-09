@@ -23,9 +23,10 @@ const createUser = async(req, res) => {
 
 const editUserByEmail = async(req, res) => {
     try {
-        let property = takeProperty(req.body)
-        const result = await User.editUserByEmail(property, req.body[`${property}`], req.body.current_email, req.body.current_pass);
-        res.status(201).json({datos_guardados:result,status:"ÉXITO"});
+        const result = await User.editUserByEmail(req.body, req.body.current_email, req.body.current_pass);
+        
+
+        res.status(201).redirect("/profile");
     } catch(err){
         res.status(400).json({"error":err});
     }
