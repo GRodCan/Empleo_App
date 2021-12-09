@@ -26,6 +26,11 @@ app.set('view engine', 'pug');
 app.set('views','./views');
 app.use(express.static('public'));
 
+app.use(function(req, res, next) {
+  res.status(401).render('errors');
+   });
+
+
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
 });
