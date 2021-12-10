@@ -76,6 +76,7 @@ const deleteOffert=async (i)=>{
         })
         const res = await data
         console.log(res)
+        window.location.reload();
 
     }catch(err){
         throw err}

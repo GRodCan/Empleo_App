@@ -44,7 +44,7 @@ const deleteFavorite= async (index) => {
         })
       
         const res = await data.json()
-        
+        window.location.reload();
         return res
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);

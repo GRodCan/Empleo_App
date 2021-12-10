@@ -15,7 +15,7 @@ const printSearch=async (dataArr)=>{
     for(let i in dataArr){
 
             document.getElementById("searchs").innerHTML+=`<div id="offer${i}" class="offert">
-            <a href="${dataArr[i].url}" id="url${i}" class="search"><div>
+            <a href="${dataArr[i].url}" id="url${i}" class="search" target="_blank" rel="noopener noreferrer"><div>
             <h3 id="title${i}" class="data">${dataArr[i].title}</h3>
             <p id="company${i}" class="data">${dataArr[i].company}</p>
             <p id="salary${i}" class="data">${dataArr[i].salary}</p>

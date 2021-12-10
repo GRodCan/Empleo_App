@@ -16,7 +16,7 @@ html
                 h2 Ofertas favoritas
                 each _offert,index in _offerts           
                     div(class="eachOffer") 
-                        a(id=("url"+index) href=_offert.url)                    
+                        a(id=("url"+index) href=_offert.url target="_blank" rel="noopener noreferrer")                    
                             h3(id=("title"+index)) #{_offert.title}
                             p(id=("salary"+index)) #{_offert.salary}
                             p(id=("company"+index)) #{_offert.company}

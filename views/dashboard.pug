@@ -15,7 +15,7 @@ html
                 div(id="offers")
                     each _offert, index in _offerts
                         div(class="eachOffer")
-                            a(href=_offert.url id=("url"+index))
+                            a(href=_offert.url id=("url"+index) target="_blank" rel="noopener noreferrer")
                                 div 
                                     h3(id=("title"+index)) #{_offert.title}
                                     p(id=("company"+index)) #{_offert.company}
