@@ -37,8 +37,8 @@ const deleteUser=async (i)=>{
             body:JSON.stringify(userEmail)
         })
         const res = await data
-        console.log(res)
-
+        console.log(res);
+        window.location.reload();
     }catch(err){
         throw err}
     }
