@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald:wght@200&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
+
+
+.containerdiv {
+    display:flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin:1vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(16, 0, 59, 0.952);
+}
+
+h3 {
+    font-size: 3vh;
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(16, 0, 59, 0.952);
+    margin: 0%;
+}
+p {
+    font-size: 2.5vh;
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(34, 34, 34, 0.993);
+    margin: 0%;
+}
+.eachOffer{
+    width: 88%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid;
+    border-color: slategrey;
+    padding: 1vh 4vw 1vh 4vw;
+    border-radius: 15px;
+    background-color: rgba(211, 220, 228, 0.39);
+    box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0b325e, 5px 5px 15px 5px rgb(255 255 255 / 0%);
+}
+button {
+    margin-bottom: 0.5rem;
+    margin-left:0.5rem; 
+   
+}
+
+#favoriteIcon{
+    height: 5.5vh;  
+  
+    color: yellow;
+}
+
+.crearoferta {
+    margin-top: 1rem;
+    font-size: 1.7rem;
+}

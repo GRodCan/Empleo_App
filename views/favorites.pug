@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        title= "Favorites"
+        style 
+
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
+            include ../public/styles/favorites.css
+        script(src="./scripts/favorites.js")
+    body
+        include ./header.pug
+        main
+            div(id= "root")
+                h2 Ofertas favoritas
+                each _offert,index in _offerts           
+                    div(class="eachOffer") 
+                        a(id=("url"+index) href=_offert.url target="_blank" rel="noopener noreferrer")                    
+                            h3(id=("title"+index)) #{_offert.title}
+                            p(id=("salary"+index)) #{_offert.salary}
+                            p(id=("company"+index)) #{_offert.company}
+                        input(
+                        id="favoriteIcon"
+                        class="icon"
+                        type="image"
+                        src="./assets/icons/delete.png"
+                        onclick=("deleteFavorite("+index+")"))
+
+        include ./footer.pug

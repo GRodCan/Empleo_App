@@ -1,0 +1,28 @@
+header
+    nav 
+        div(class="burger")
+                input(
+                    type="checkbox"
+                    id="menu")
+                label(
+                    for="menu"
+                ) ☰
+                ul(
+                    class="desplegable"
+                )  
+                    a(href="/", ): li  Inicio 
+                    if !log.loggedIn
+                        a(href="/signup"): li Registro de usuario
+                        a(href="/login"): li Iniciar sesión
+                    if log.loggedIn
+                        a(href="/favorites"): li Ofertas favoritas 
+                        a(href="/profile"): li Perfil de usuario 
+                                            
+                    if log.admin
+                        a(href="/users"): li Listado de usuarios 
+                        a(href="/dashboard"): li Ofertas EmpleApp
+                    if log.loggedIn
+                        a(href="/"): li 
+                            form(action="/api/logout" method="POST" class="logout")
+                                input(type="submit" value="Cerrar sesión" class="logout")
+    h1 EmpleApp   

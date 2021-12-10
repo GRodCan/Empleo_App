@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
+
+
+#users{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    overflow-y: scroll;
+}
+
+#searchs{
+    width: 80%;
+}
+
+.eachUser {
+    background-color: rgba(211, 220, 228, 0.39);;
+    margin-top: 1rem;
+    border-style: solid;
+    border-color: slategrey;
+    border-radius: 5px;
+}
+
+.ficha{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.ficha p{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+}
+
+h3 {
+    text-align: center;
+    margin:0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: rgba(16, 0, 59, 0.952);
+}
+
+h2 {
+    text-align: center;
+    margin:0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(16, 0, 59, 0.952);
+}
+
+p {
+    font-family: 'Oswald', sans-serif;
+    margin:1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;  
+    color: rgba(34, 34, 34, 0.993);
+}
+.imagen_div{
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    
+}
+.avatar{
+    width: 40%;
+    border-radius: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button{
+    font-family: 'Montserrat', sans-serif;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: #3374ffa6;
+    box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
+    font-size: 3vh;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+.button:hover {
+    background-color: rgba(26, 0, 59, 0.952);
+    color: white;
+}
+.ficha_button{
+    margin: 1rem 1rem;
+    width: 5%;
+}
+
+.create{
+    margin-bottom: 1rem;
+}
+
+.btns_ficha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.edit{
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.edit *{
+    margin-bottom: 1rem;
+}
+
+.edit button{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.editbtn{
+    margin-top: 1rem;
+}
+
+label.admin{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: rgba(16, 0, 59, 0.952);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    border-color: rgba(16, 0, 59, 0.952);
+    border-radius: 7px;
+    margin-top: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.perfil{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

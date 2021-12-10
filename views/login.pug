@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title= "Login"
+        style 
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
+            include ../public/styles/login.css
+    body
+        include ./header.pug
+        main
+            div(id= "root")
+                h2= "Login" 
+                form(action="/api/login" method="POST" class="login")
+                    div(class="containerdiv")
+                        input(type="email" placeholder="Email" name="current_email")
+                        input(type="password" placeholder="Contraseña" name="current_pass")
+                        div(class="send")
+                        button(class="send" type="submit") Ingresar
+        include ./footer.pug

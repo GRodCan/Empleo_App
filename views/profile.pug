@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title= "Profile"
+        style 
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
+            include ../public/styles/profile.css
+        script( src="/scripts/profile.js")
+    body
+        include ./header.pug
+        main
+            div(id="root" class="containerdiv") 
+                h2 Perfil de usuario
+                div(class="perfil") 
+                    img(src=user.img , alt="Avatar User" class="avatar")
+                    p #[strong Nombre:] #{user.nombre}
+                    p #[strong Email:] #{user.email}
+                    p #[strong Fecha de alta:] #{user.fecha.toString().substring(0,15)}
+                button(class="send" onclick="editMode()")= "Editar"
+
+
+
+        include ./footer.pug
+
+

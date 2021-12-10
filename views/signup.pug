@@ -1,0 +1,53 @@
+doctype html
+html
+    head
+        title= "Sign Up"
+        style 
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
+            include ../public/styles/signup.css
+    body
+        include ./header.pug
+        main
+            div(id="root")
+                h2  Registro
+                form(
+                    action="/api/user"
+                    method="POST"
+                    class="signup")
+                    div(id="userData")                        
+                            input(
+                                type="text"
+                                placeholder="Nombre de usuario"
+                                name="nombre"
+                                class="userData")                        
+                            input(
+                                type="email"
+                                placeholder="Email"
+                                name="email"
+                                class="userData")                            
+                            input(
+                                type="password"
+                                placeholder="Contraseña"
+                                name="pass"
+                                class="userData")                            
+                            input(
+                                type="text"
+                                placeholder="URL de la imagen"
+                                name="img"
+                                class="userData")
+                            button(
+                            type="submit"
+                            ) Registrar
+                //- div(class="redes")
+                    //- input(
+                    //-     type="submit"
+                    //-     value="Continuar con Facebook"
+                    //-     id="facebook")
+                    //- input(
+                    //-     type="submit"
+                    //-     value="Continuar con Google"
+                    //-     id="google")
+
+        include ./footer.pug
+

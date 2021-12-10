@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
+
+div#busqueda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1vh;
+    margin-top: 0vh;
+    color:rgba(16, 0, 59, 0.952);
+    width: 100%;
+}
+h2 {
+    margin:1vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(16, 0, 59, 0.952);
+}
+img#loading{
+    height: 20vh;
+    margin-bottom: -4vh;
+}
+
+input#buscar{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    border-style: solid;
+    border-color: rgba(16, 0, 59, 0.952);
+    border-radius: 7px;
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 80%;
+}
+button{
+    font-family: 'Montserrat', sans-serif;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: #3374ffa6;
+    box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
+    font-size: 3vh;
+    width: 35vw;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+div#searchs{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+}
+
+div.offert{
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(16, 0, 59, 0.952);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid;
+    border-color: slategrey;
+    padding: 1vh 4vw 1vh 4vw;
+    border-radius: 15px;
+    margin: 0.5vh 2vw;
+    background-color: rgba(211, 220, 228, 0.39);
+    box-shadow: inset -1px 3px 8px 5px #3374ff, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(255,255,255,0);
+}
+
+.data{
+    margin: 1vh 0vw;
+    color: black; 
+}
+h3.data{
+    font-size: 3vh;
+}
+p.data{
+    font-size: 2.5vh;
+}
+a.search:link, a.search:visited, a.search:active {
+    text-decoration:none;
+    color:black;
+}
+input#favoriteIcon{
+    height: 5.5vh;  
+}
+

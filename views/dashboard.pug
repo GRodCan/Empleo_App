@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title= "DashBoard"
+        style 
+            include ../public/styles/normalize.css
+            include ../public/styles/general.css
+            include ../public/styles/dashboard.css
+            
+    body
+        include ./header.pug
+        main   
+            div(id="root")
+                h2  Ofertas actuales
+                div(id="offers")
+                    each _offert, index in _offerts
+                        div(class="eachOffer")
+                            a(href=_offert.url id=("url"+index) target="_blank" rel="noopener noreferrer")
+                                div 
+                                    h3(id=("title"+index)) #{_offert.title}
+                                    p(id=("company"+index)) #{_offert.company}
+                                    p(id=("salary"+index)) #{_offert.salary}
+                            div
+                                input(id=("editIcon"+index) class="icon" type="image" src="./assets/icons/edit.png" onclick=("getOffertToEdit("+index+")"))
+                                input(id=("deleteIcon"+index)  class="icon" type="image" src="./assets/icons/delete.png" onclick=("deleteOffert("+index+")"))
+                                    //- button(type="button" class="edit" onClick=nombreDeLaFuncion) Editar
+                                    //- button(type="button" class="delete" onClick=nombreDeLaFuncion) Borrar   
+                div 
+                    button(id="newOffer_Button" onClick="newOffert()") Crear nueva oferta
+        include ./footer.pug
+        script( src="/scripts/dashboard.js")

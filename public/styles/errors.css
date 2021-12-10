@@ -1,0 +1,34 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=Inter:wght@200&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald:wght@200&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&family=Roboto+Condensed:wght@300&display=swap');
+
+body{
+    background: black; 
+    font-family: 'Inter', sans-serif;
+}
+#mainErrorContainer{
+    background: black;
+}
+
+#errorDiv{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    background: black;
+    
+}
+a{
+    font-family: 'Roboto Condensed', sans-serif; 
+    color: whitesmoke;
+}
+
+.errorImage {
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+  
+}
