@@ -15,9 +15,7 @@ const generateToken=async(req,res)=>{
         email: user.email,
         pass: user.pass
     }
-    console.log("esto es payload", payload)
     const token = jwt.sign(payload, secret, {expiresIn: '1d'})
-    console.log("Esto es token", token)
     res
     .cookie('jwt',
         token,{

@@ -2,12 +2,12 @@
 
 p.footer {
     font-family: 'Montserrat', sans-serif;
-    width: 99vw;
-    color: white;
     height: 1.3rem;
     position: bottom;
-    display: flex;
     margin-left: 0%;
     padding-left: 4rem;
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 7rem;
     background: url('https://img.freepik.com/vector-gratis/vector-tecnologia-circulo-bulbo-azul-claro-lampara-fondo-tecnologia_43778-422.jpg?size=626&ext=jpg') no-repeat center center/cover;
 }

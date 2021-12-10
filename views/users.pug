@@ -20,14 +20,15 @@ html
                                 p(id=("email"+index) value=user.email) #[strong Email:] #{user.email}
                                 p(id=("administrador"+index)) #[strong Administrador:] #{user.administrador}
                                 p(id=("date"+index)) #[strong Fecha de alta:] #{user.fecha.toString().substring(0,15)}
-                                input(class="ficha_button"
-                                    type="image"
-                                    src="./assets/icons/edit.png"
-                                    onclick=("editMode('"+user.email+"')"))
-                                input(class="ficha_button"
-                                    type="image"
-                                    src="./assets/icons/delete.png"
-                                    onclick=("deleteUser("+index+")"))
+                                div(class="btns_ficha")
+                                    input(class="ficha_button"
+                                        type="image"
+                                        src="./assets/icons/edit.png"
+                                        onclick=("editMode('"+user.email+"')"))
+                                    input(class="ficha_button"
+                                        type="image"
+                                        src="./assets/icons/delete.png"
+                                        onclick=("deleteUser("+index+")"))
                 a(href="signup"): button(class="create") Crear usuario 
             
         include ./footer.pug

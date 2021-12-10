@@ -22,8 +22,8 @@
     height: 50vh;
     flex-direction: column;
     justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .ficha p{
@@ -77,10 +77,16 @@ button{
     color: white;
 }
 .ficha_button{
-    margin-top: 2vh;
-    width: 25vh;
+    margin-top: 1rem;
+    width: 5%;
 }
 
 .create{
     margin-bottom: 1rem;
+}
+
+.btns_ficha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
