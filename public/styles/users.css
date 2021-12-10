@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comfortaa:wght@700&family=M+PLUS+2:wght@200;300&family=Montserrat&family=Open+Sans:wght@800&family=Oswald&family=Outfit:wght@300;700&family=Poppins:wght@400;900&family=Quicksand&family=Raleway:wght@300;900&family=Roboto&display=swap');
 
-.containerdiv {
+
+#users{
     display:flex;
     flex-direction: column;
     align-content: center;
-}
-
-#users{
     overflow-y: scroll;
 }
 
@@ -21,10 +19,11 @@
 .ficha{
     font-family: 'Montserrat', sans-serif;
     display: flex;
+    height: 50vh;
     flex-direction: column;
     justify-content: center;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 .ficha p{
@@ -48,6 +47,12 @@ p {
     font-size: 1rem;  
     color: rgba(34, 34, 34, 0.993);
 }
+.imagen_div{
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    
+}
 .avatar{
     width: 40%;
     border-radius: 100%;
@@ -70,6 +75,10 @@ button{
 .button:hover {
     background-color: rgba(26, 0, 59, 0.952);
     color: white;
+}
+.ficha_button{
+    margin-top: 2vh;
+    width: 25vh;
 }
 
 .create{

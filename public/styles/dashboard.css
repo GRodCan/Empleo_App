@@ -61,7 +61,7 @@ div.eachOffer p{
 }
 input.icon {
     height: 4vh;
-    
+    margin: 0.7vh 0vh;
     margin-left:1vh; 
     font-family: 'Montserrat', sans-serif;
 }

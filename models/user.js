@@ -42,39 +42,32 @@ const getUserByEmail = async(email) => {
         client.release();
     }
     return result
-}
-const editUserByEmail = async(newData, email, oldPass) => {
+};
+
+
+const editUserByEmail = async(newData, email) => {
     let client, result
     try{
         client = await pool.connect();
-
-        const dataUser =await getUserByEmail(email)
-        
-        const finalData= await compareData(dataUser[0],newData)
-        const {nombre, img, pass}=finalData
-
-        
-
-
+                // newData
         // // [{propiedad:"name",newValue:"Pepe"},
         // // {propiedad:"salary",newValue:"500"}]
-        // let targetQuery =""
-        // for(let i=0;i<propiedades.length;i++){
-        //     targetQuery+=`${propiedades[i].propiedad} = ${"$"+(i+1)} `
-        //     if((i+1)!=propiedades.length){
-        //         targetQuery+=`AND `
-        //     }
-        // }
-
-        // const newValues=await propiedades.map((elemento)=>{
-        //    return elemento.newValue
-        // })
-
+        let targetQuery =""
+        for(let i=0;i<newData.length;i++){
+            targetQuery+=`${newData[i].propiedad} = ${"$"+(i+1)} `
+            if((i+1)!=newData.length){
+                targetQuery+=`, `
+            }
+        }
+        const newValues=await newData.map((elemento)=>{
+           return elemento.newValue
+        })
         const query = `UPDATE users
-                    SET nombre = $1, pass = $2, email = $3, img= $4                                   
-                    WHERE email = $5`
+                    SET ${targetQuery}                                   
+                    WHERE email = $${(newData.length+1)}`
 
-        let data = await client.query(query, [nombre,pass,finalData.email, img, email])
+        let valuesQuery= await newValues.concat([email]);
+        let data = await client.query(query, valuesQuery);
         result = data.rowCount
     }catch(err){
         console.log(err);
@@ -84,6 +77,8 @@ const editUserByEmail = async(newData, email, oldPass) => {
     }
     return result;
 };
+
+
 const existUser = async(email, pass) => {
     try {
         client = await pool.connect();
@@ -103,12 +98,29 @@ const existUser = async(email, pass) => {
     }
     return result
 }
+
+const deleteUserbyEmail=async (email)=>{
+    let result;
+    let client;
+    try {
+        client = await pool.connect(); 
+        const data = await client.query(`DELETE FROM users WHERE email = $1`,[email]);
+        result = data.rowCount;     
+    }catch(err){
+        console.log(err);
+        throw err;
+    }finally{
+        client.release();
+    }return result
+}
+
 const users = {
     createUser,
     getUserByEmail,
     editUserByEmail,
-    existUser
-}
+    existUser,
+    deleteUserbyEmail
+};
 module.exports = users;
 // getUserByEmail("batman@test.com")
 //Pruebas
@@ -124,10 +136,8 @@ module.exports = users;
 
 
 
-// let arr={nombre:"",
-// pass:"",
-// img:"https://i.pinimg.com/736x/e1/ad/c9/e1adc9d3d820e5e09529601dd94cf7ea.jpg",
-// email:"enigma@test.com"
-// }
+// let arr=[{propiedad:"nombre",newValue:"Bruce"},
+// {propiedad:"img",newValue:"https://blogdesuperheroes.es/wp-content/plugins/BdSGallery/BdSGaleria/1737.jpg"},{propiedad:"email", newValue:"bruce@test.com"}]
 
-// editUserByEmail(arr,"batman@test.com","654321")
+
+// editUserByEmail(arr,"batman@test.com")
