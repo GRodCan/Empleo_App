@@ -2,10 +2,17 @@ const User = require('../models/user')
 
 const login = async(req, res, next) => {
     try {
-        const{email, pass} = req.body
-        const user = await User.existUser(email, pass)
+        let user
+        if(req.body.emailAdmin){
+            const{emailAdmin, current_pass} = req.body
+        
+             user = await User.existUser(emailAdmin, current_pass)  
+        }else{
+        const{current_email, current_pass} = req.body
+        
+         user = await User.existUser(current_email, current_pass)
+        }
         if(user){
-            console.log("Esto es user", user)
             req.user = user
             next()   
         }else{

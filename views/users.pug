@@ -6,21 +6,28 @@ html
             include ../public/styles/normalize.css
             include ../public/styles/general.css
             include ../public/styles/users.css
+        script( src="/scripts/users.js")    
     body
         include ./header.pug
         main
             div(id= "root")
                 div(id= "users")
-                    each user in users
-                        a(href="#")
+                    each user, index in users
                             div(class="ficha")
-                                img(src=user.img alt="Avatar del usuario" class="avatar")
-                                p #[strong Nombre:] #{user.nombre}
-                                p #[strong Email:] #{user.email}
-                                p #[strong Administrador:] #{user.administrador}
-                                p #[strong Fecha de alta:] #{user.fecha.toString().substring(0,15)}
-                                button(type="button" class="edit" onClick=funcionEditar) Editar Usuario
-                                button(type="button" class="delete" onClick=funcionEliminar) Eliminar Usuario 
+                                div(class="imagen_div")
+                                    img(src=user.img alt="Avatar del usuario" class="avatar")
+                                p(id=("nombre"+index)) #[strong Nombre:] #{user.nombre}
+                                p(id=("email"+index) value=user.email) #[strong Email:] #{user.email}
+                                p(id=("administrador"+index)) #[strong Administrador:] #{user.administrador}
+                                p(id=("date"+index)) #[strong Fecha de alta:] #{user.fecha.toString().substring(0,15)}
+                                input(class="ficha_button"
+                                    type="image"
+                                    src="./assets/icons/edit.png"
+                                    onclick=("editMode('"+user.email+"')"))
+                                input(class="ficha_button"
+                                    type="image"
+                                    src="./assets/icons/delete.png"
+                                    onclick=("deleteUser("+index+")"))
                 a(href="signup"): button(class="create") Crear usuario 
             
         include ./footer.pug

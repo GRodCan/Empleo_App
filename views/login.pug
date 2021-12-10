@@ -13,8 +13,8 @@ html
                 h2= "Login" 
                 form(action="/api/login" method="POST" class="login")
                     div(class="containerdiv")
-                        input(type="email" placeholder="Email" name="email")
-                        input(type="password" placeholder="Contraseña" name="pass")
+                        input(type="email" placeholder="Email" name="current_email")
+                        input(type="password" placeholder="Contraseña" name="current_pass")
                         div(class="send")
                         button(class="send" type="submit") Ingresar
         include ./footer.pug

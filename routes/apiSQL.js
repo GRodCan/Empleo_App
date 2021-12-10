@@ -14,9 +14,9 @@ const secret = process.env.JWT_SECRET
 
 routes.post('/user', api_sql.createUser);
 
-routes.post('/user/edit', api_sql.editUserByEmail);
+routes.post('/user/edit',login, api_sql.editUserByEmail);
 
-routes.delete('/user', (req,res)=>res.send("Borrar un usuario de la base de datos (admin)"));
+routes.delete('/user', api_sql.deleteUserbyEmail);
 
 routes.post('/login', login, generateToken)
 

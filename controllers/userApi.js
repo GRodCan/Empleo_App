@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const takeProperty = require('../utils/takeProperty');
+const bodyToArray = require('../utils/editUser')
 
 const getUsers = async(req, res) => {
     let data;
@@ -15,7 +16,7 @@ const createUser = async(req, res) => {
     try{
         const result = await User.createUser(req.body.nombre, req.body.email, req.body.pass, req.body.img);
         console.log('Usuario creado');
-        res.redirect('http://localhost:3000/login');
+        res.redirect('/login');
     }catch(err){
         res.status(400).json({"error":err});
     }
@@ -23,14 +24,31 @@ const createUser = async(req, res) => {
 
 const editUserByEmail = async(req, res) => {
     try {
-        const result = await User.editUserByEmail(req.body, req.body.current_email, req.body.current_pass);
-        
-
-        res.status(201).redirect("/profile");
-    } catch(err){
+        let admin=false;
+        if(req.body.emailAdmin){
+            admin=true;
+        }
+        const current_email=req.body.current_email
+        let arrProps=bodyToArray(req.body)
+        const result = await User.editUserByEmail(arrProps, current_email);
+        console.log('Usuario modificado');
+        if(admin===true){res.status(201).redirect("/users")
+        }else{
+        res.status(201).redirect("/profile");}
+        } catch(err){
         res.status(400).json({"error":err});
     }
 };
+
+
+const deleteUserbyEmail=async (req,res)=>{
+   try{ 
+       console.log(req.body.userEmail)
+        const result = await User.deleteUserbyEmail(req.body.userEmail);
+        console.log('Usuario Borrado');
+        res.status(201).redirect("/users")
+}catch(err){
+    res.status(400).json({"error":err})}}
 
 // const loginUser = async(req, res) => {
 //     try {
@@ -48,7 +66,8 @@ const editUserByEmail = async(req, res) => {
 const users = {
     getUsers,
     createUser,
-    editUserByEmail
+    editUserByEmail,
+    deleteUserbyEmail
     // loginUser
 }
 
