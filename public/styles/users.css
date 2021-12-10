@@ -8,6 +8,10 @@
     overflow-y: scroll;
 }
 
+#searchs{
+    width: 80%;
+}
+
 .eachUser {
     background-color: rgba(211, 220, 228, 0.39);;
     margin-top: 1rem;
@@ -37,6 +41,14 @@ h3 {
     margin:0.7rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
+    color: rgba(16, 0, 59, 0.952);
+}
+
+h2 {
+    text-align: center;
+    margin:0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
     color: rgba(16, 0, 59, 0.952);
 }
 
@@ -88,5 +100,51 @@ button{
 .btns_ficha{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.edit{
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.edit *{
+    margin-bottom: 1rem;
+}
+
+.edit button{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.editbtn{
+    margin-top: 1rem;
+}
+
+label.admin{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: rgba(16, 0, 59, 0.952);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    border-color: rgba(16, 0, 59, 0.952);
+    border-radius: 7px;
+    margin-top: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.perfil{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }

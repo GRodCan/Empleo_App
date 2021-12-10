@@ -7,7 +7,7 @@ const newOffert=(data)=>{
     <input type="text" name="company" id="form_company" placeholder="Compañia" value="" class="form_input">
     <input type="text" name="salary" id="form_salary" placeholder="Salario" value="" class="form_input">
     <input type="url" name="url" id="form_url" placeholder="Url Oferta" value="" class="form_input">
-    <button type="submit" id="createOffer_Button" value="">Create new offer</button>
+    <button type="submit" id="createOffer_Button" value="">Crear nueva oferta</button>
     </form>
     `     
     }
@@ -19,7 +19,7 @@ const newOffert=(data)=>{
     <input type="text" name="company" id="form_company" placeholder="Compañia" value="${data.company}" class="form_input">
     <input type="text" name="salary" id="form_salary" placeholder="Salario" value="${data.salary}" class="form_input">
     <input type="url" name="url" id="form_url" placeholder="Url Oferta" value="${data.url}" class="form_input">
-    <button onclick="editOffert()" type="submit" id="createOffer_Button" name="oldTitle" value="${data.title}">Save changes</button>
+    <button onclick="editOffert()" type="submit" id="createOffer_Button" name="oldTitle" value="${data.title}">Guardar cambios</button>
     </form>
     `}
 };
