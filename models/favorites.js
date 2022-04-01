@@ -1,9 +1,9 @@
 const { Pool } = require('pg');
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "EmpleoApp",
-    password: process.env.DATABASE_SQLPASS
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 const getFavorites = async(id_user) => {

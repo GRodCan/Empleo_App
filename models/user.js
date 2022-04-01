@@ -1,10 +1,10 @@
 const compareData= require("../utils/editUser")
 const { Pool } = require('pg');
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "EmpleoApp",
-    password: process.env.DATABASE_SQLPASS
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 const createUser = async(nombre, email, pass, img, administrador=false) => {
     console.log("Esto es lo que llega", nombre, email, pass, img);

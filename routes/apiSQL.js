@@ -20,6 +20,19 @@ routes.delete('/user', api_sql.deleteUserbyEmail);
 
 routes.post('/login', login, generateToken)
 
+routes.get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect();
+      const result = await client.query('SELECT * FROM test_table');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/db', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
 routes.post('/logout', (req, res) => {
     if (req.cookies['jwt']) {
         res
